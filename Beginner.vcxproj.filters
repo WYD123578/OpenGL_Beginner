@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\Manager">
+      <UniqueIdentifier>{0a84c790-c6bf-4357-b0de-ac6a321872e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Manager">
+      <UniqueIdentifier>{e8b6e608-4dcb-4c0c-9034-a862e73734af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Plugin">
+      <UniqueIdentifier>{f022b5e6-9aa7-43df-9a1f-413664950379}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Plugin">
+      <UniqueIdentifier>{e8da629f-5537-4c78-a6f1-d871e52244b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Tool">
+      <UniqueIdentifier>{727a8cfe-2c27-4adb-9ebf-7e50aebb3817}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\Shader">
+      <UniqueIdentifier>{b4172b97-4acb-4d73-ad46-e0ca2cc848f9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Beginner.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Display.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayManager.cpp">
+      <Filter>源文件\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicBooster.cpp">
+      <Filter>源文件\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugin\glad.c">
+      <Filter>源文件\Plugin</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Display.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayManager.h">
+      <Filter>头文件\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicBooster.h">
+      <Filter>头文件\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugin\stb_image.h">
+      <Filter>头文件\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\Shader.h">
+      <Filter>头文件\Tool</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resource\container.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="Resource\awesomeface.png">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shader\Texture.fs">
+      <Filter>资源文件\Shader</Filter>
+    </None>
+    <None Include="Shader\Texture.vs">
+      <Filter>资源文件\Shader</Filter>
+    </None>
+  </ItemGroup>
+</Project>
