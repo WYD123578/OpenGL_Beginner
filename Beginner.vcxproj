@@ -82,11 +82,13 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>F:\OpenGL\Tools\include;$(IncludePath)</IncludePath>
     <LibraryPath>F:\OpenGL\Tools\lib;$(LibraryPath)</LibraryPath>
+    <ReferencePath>$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>F:\OpenGL\Tools\include;$(IncludePath)</IncludePath>
     <LibraryPath>F:\OpenGL\Tools\lib;$(LibraryPath)</LibraryPath>
+    <ReferencePath>$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -154,12 +156,24 @@
     <ClCompile Include="DisplayManager.cpp" />
     <ClCompile Include="GraphicBooster.cpp" />
     <ClCompile Include="Plugin\glad.c" />
+    <ClCompile Include="Plugin\imgui\imgui.cpp" />
+    <ClCompile Include="Plugin\imgui\imgui_demo.cpp" />
+    <ClCompile Include="Plugin\imgui\imgui_draw.cpp" />
+    <ClCompile Include="Plugin\imgui\imgui_tables.cpp" />
+    <ClCompile Include="Plugin\imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Display.h" />
     <ClInclude Include="DisplayManager.h" />
     <ClInclude Include="GraphicBooster.h" />
+    <ClInclude Include="Plugin\imgui\imconfig.h" />
+    <ClInclude Include="Plugin\imgui\imgui.h" />
+    <ClInclude Include="Plugin\imgui\imgui_internal.h" />
+    <ClInclude Include="Plugin\imgui\imstb_rectpack.h" />
+    <ClInclude Include="Plugin\imgui\imstb_textedit.h" />
+    <ClInclude Include="Plugin\imgui\imstb_truetype.h" />
     <ClInclude Include="Plugin\stb_image.h" />
+    <ClInclude Include="Tool\CameraControl.h" />
     <ClInclude Include="Tool\Shader.h" />
   </ItemGroup>
   <ItemGroup>

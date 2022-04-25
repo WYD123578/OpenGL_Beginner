@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="资源文件">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="头文件\Manager">
       <UniqueIdentifier>{0a84c790-c6bf-4357-b0de-ac6a321872e8}</UniqueIdentifier>
     </Filter>
@@ -28,7 +24,14 @@
     <Filter Include="头文件\Tool">
       <UniqueIdentifier>{727a8cfe-2c27-4adb-9ebf-7e50aebb3817}</UniqueIdentifier>
     </Filter>
-    <Filter Include="资源文件\Shader">
+    <Filter Include="imgui">
+      <UniqueIdentifier>{80312344-25b2-4583-b476-24baa9082e50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="resource\Shader">
       <UniqueIdentifier>{b4172b97-4acb-4d73-ad46-e0ca2cc848f9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -48,6 +51,21 @@
     <ClCompile Include="Plugin\glad.c">
       <Filter>源文件\Plugin</Filter>
     </ClCompile>
+    <ClCompile Include="Plugin\imgui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugin\imgui\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugin\imgui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugin\imgui\imgui_tables.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugin\imgui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Display.h">
@@ -65,21 +83,42 @@
     <ClInclude Include="Tool\Shader.h">
       <Filter>头文件\Tool</Filter>
     </ClInclude>
+    <ClInclude Include="Plugin\imgui\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugin\imgui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugin\imgui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugin\imgui\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugin\imgui\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugin\imgui\imstb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool\CameraControl.h">
+      <Filter>头文件\Tool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resource\container.jpg">
-      <Filter>资源文件</Filter>
+      <Filter>resource</Filter>
     </Image>
     <Image Include="Resource\awesomeface.png">
-      <Filter>资源文件</Filter>
+      <Filter>resource</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shader\Texture.fs">
-      <Filter>资源文件\Shader</Filter>
+      <Filter>resource\Shader</Filter>
     </None>
     <None Include="Shader\Texture.vs">
-      <Filter>资源文件\Shader</Filter>
+      <Filter>resource\Shader</Filter>
     </None>
   </ItemGroup>
 </Project>
