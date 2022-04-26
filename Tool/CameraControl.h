@@ -35,7 +35,6 @@ private:
 	float _yaw; // 偏航角
 	float _fov;
 
-
 	glm::mat4 customLookAtMat4(glm::vec3 eye, glm::vec3 center, glm:: vec3 up) const
 	{
 		// 所有物体都移动到相机相反的向量（相机认为永远是0，此时定义的相机位置，就是所有物体应该位移的向量）
@@ -74,15 +73,30 @@ private:
 		return rotate * translate;
 	}
 
+	void updateCameraVectors()
+	{
+		const float radiansXy = glm::radians(_pitch);
+		const float radiansXz = glm::radians(_yaw);
+		const float xzRadius = glm::cos(radiansXy);
+
+		const float directionX = glm::sin(radiansXz) * xzRadius;
+		const float directionY = glm::sin(radiansXy);
+		const float directionZ = -glm::cos(radiansXz) * xzRadius;
+
+		_front = glm::normalize(glm::vec3(directionX, directionY, directionZ));
+		_right = glm::normalize(glm::cross(_front, _worldUp));
+		_up = glm::normalize(glm::cross(_right, _front));
+	}
+
 public:
-	CameraControl(glm::vec3 pos, glm::vec3 up = glm::vec3(0, 1, 0)) : _pos(pos), _worldUp(up)
+	CameraControl(glm::vec3 pos, glm::vec3 up = glm::vec3(0, 1, 0), float pitch = 10.0f, float yaw = 10.0f) : _pos(pos), _worldUp(up)
 
 	{
 		_cameraMoveSpeed = 1.0f;
 		_cameraSensitive = 0.01f;
 
-		_pitch = 0;
-		_yaw = 0;
+		_pitch = pitch;
+		_yaw = yaw;
 		_fov = 55.0f;
 
 		updateCameraVectors();
@@ -110,24 +124,10 @@ public:
 		{
 			_pos += _right * _cameraMoveSpeed * deltaTime;
 		}
+		updateCameraVectors();
 	}
 
-	void updateCameraVectors()
-	{
-		const float radiansXy = glm::radians(_pitch);
-		const float radiansXz = glm::radians(_yaw);
-		const float xzRadius = glm::cos(radiansXy);
-
-		const float directionX = glm::sin(radiansXz) * xzRadius;
-		const float directionY = glm::sin(radiansXy);
-		const float directionZ = -glm::cos(radiansXz) * xzRadius;
-
-		_front = glm::normalize(glm::vec3(directionX, directionY, directionZ));
-		_right = glm::normalize(glm::cross(_front, _worldUp));
-		_up = glm::normalize(glm::cross(_right, _front));
-	}
-
-	void onMouseMove(float xOffset, float yOffset)
+	void processMouseMovement(float xOffset, float yOffset)
 	{
 		_yaw += xOffset * _cameraSensitive;
 		_pitch += yOffset * _cameraSensitive;
@@ -145,9 +145,10 @@ public:
 			_pitch = minPitch;
 		}
 
+		updateCameraVectors();
 	}
 
-	void onMouseScroll(float zoom)
+	void processMouseScroll(float zoom)
 	{
 		_fov -= zoom;
 		const float maxFov = 60;
@@ -155,9 +156,10 @@ public:
 
 		if (_fov <= minFov) _fov = minFov;
 		if (_fov >= maxFov) _fov = maxFov;
+		// 不用更新Vector，因为是Projection相关的内容，与Camera本身的坐标没有关系
 	}
 
-	glm::mat4 viewLookAtMat4()
+	glm::mat4 viewLookAtMat4() const
 	{
 		const glm::vec3 eye = _pos;
 		const glm::vec3 center = _pos + _front;

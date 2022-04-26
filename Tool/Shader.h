@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <glm/vec3.hpp>
 
 class Shader
 {
@@ -106,6 +107,16 @@ public:
     {
         glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
     }
+
+    void setVec3(const std::string& name, float x, float y, float z) const
+    {
+        glUniform3f(glGetUniformLocation(ID, name.c_str()), x, y, z);
+    }
+
+    void setVec3(const std::string& name, glm::vec3 value) const
+	{
+        setVec3(name, value.x, value.y, value.z);
+	}
 
     void setMatrix4(const std::string& name, const float* value) const
 	{

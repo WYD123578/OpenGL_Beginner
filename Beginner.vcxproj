@@ -159,6 +159,8 @@
     <ClCompile Include="Plugin\imgui\imgui.cpp" />
     <ClCompile Include="Plugin\imgui\imgui_demo.cpp" />
     <ClCompile Include="Plugin\imgui\imgui_draw.cpp" />
+    <ClCompile Include="Plugin\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="Plugin\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="Plugin\imgui\imgui_tables.cpp" />
     <ClCompile Include="Plugin\imgui\imgui_widgets.cpp" />
   </ItemGroup>
@@ -168,11 +170,15 @@
     <ClInclude Include="GraphicBooster.h" />
     <ClInclude Include="Plugin\imgui\imconfig.h" />
     <ClInclude Include="Plugin\imgui\imgui.h" />
+    <ClInclude Include="Plugin\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="Plugin\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="Plugin\imgui\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="Plugin\imgui\imgui_internal.h" />
     <ClInclude Include="Plugin\imgui\imstb_rectpack.h" />
     <ClInclude Include="Plugin\imgui\imstb_textedit.h" />
     <ClInclude Include="Plugin\imgui\imstb_truetype.h" />
     <ClInclude Include="Plugin\stb_image.h" />
+    <ClInclude Include="Tool\Camera.h" />
     <ClInclude Include="Tool\CameraControl.h" />
     <ClInclude Include="Tool\Shader.h" />
   </ItemGroup>
@@ -181,6 +187,8 @@
     <Image Include="Resource\container.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Shader\LampShader.fs" />
+    <None Include="Shader\LampShader.vs" />
     <None Include="Shader\Texture.fs" />
     <None Include="Shader\Texture.vs" />
   </ItemGroup>

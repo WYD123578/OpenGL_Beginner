@@ -24,15 +24,15 @@
     <Filter Include="头文件\Tool">
       <UniqueIdentifier>{727a8cfe-2c27-4adb-9ebf-7e50aebb3817}</UniqueIdentifier>
     </Filter>
-    <Filter Include="imgui">
-      <UniqueIdentifier>{80312344-25b2-4583-b476-24baa9082e50}</UniqueIdentifier>
-    </Filter>
     <Filter Include="resource">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="resource\Shader">
       <UniqueIdentifier>{b4172b97-4acb-4d73-ad46-e0ca2cc848f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{80312344-25b2-4583-b476-24baa9082e50}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +64,12 @@
       <Filter>imgui</Filter>
     </ClCompile>
     <ClCompile Include="Plugin\imgui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugin\imgui\imgui_impl_glfw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugin\imgui\imgui_impl_opengl3.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,6 +110,18 @@
     <ClInclude Include="Tool\CameraControl.h">
       <Filter>头文件\Tool</Filter>
     </ClInclude>
+    <ClInclude Include="Tool\Camera.h">
+      <Filter>头文件\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugin\imgui\imgui_impl_glfw.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugin\imgui\imgui_impl_opengl3.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugin\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resource\container.jpg">
@@ -118,6 +136,12 @@
       <Filter>resource\Shader</Filter>
     </None>
     <None Include="Shader\Texture.vs">
+      <Filter>resource\Shader</Filter>
+    </None>
+    <None Include="Shader\LampShader.fs">
+      <Filter>resource\Shader</Filter>
+    </None>
+    <None Include="Shader\LampShader.vs">
       <Filter>resource\Shader</Filter>
     </None>
   </ItemGroup>
