@@ -22,7 +22,6 @@ private:
 
 
 	// OpenGL是右手坐标系，所以摄像机要看向画面就得要看向Z轴负方向
-	glm::vec3 _pos;
 
 	glm::vec3 _front;
 	glm::vec3 _right;
@@ -31,11 +30,9 @@ private:
 	const glm::vec3 _worldUp;
 
 	// 角度
-	float _pitch; // 俯仰角
-	float _yaw; // 偏航角
 	float _fov;
 
-	glm::mat4 customLookAtMat4(glm::vec3 eye, glm::vec3 center, glm:: vec3 up) const
+	glm::mat4 customLookAtMat4(glm::vec3 eye, glm::vec3 center, glm::vec3 up) const
 	{
 		// 所有物体都移动到相机相反的向量（相机认为永远是0，此时定义的相机位置，就是所有物体应该位移的向量）
 		// 也可以理解成把相机摆放到(0,0,0)看向-z的位置上，所经过的变换就是所有场景物体都要进行的变换（相对不变，则看到的内容都是一样的）
@@ -73,76 +70,64 @@ private:
 		return rotate * translate;
 	}
 
-	void updateCameraVectors()
-	{
-		const float radiansXy = glm::radians(_pitch);
-		const float radiansXz = glm::radians(_yaw);
-		const float xzRadius = glm::cos(radiansXy);
-
-		const float directionX = glm::sin(radiansXz) * xzRadius;
-		const float directionY = glm::sin(radiansXy);
-		const float directionZ = -glm::cos(radiansXz) * xzRadius;
-
-		_front = glm::normalize(glm::vec3(directionX, directionY, directionZ));
-		_right = glm::normalize(glm::cross(_front, _worldUp));
-		_up = glm::normalize(glm::cross(_right, _front));
-	}
 
 public:
-	CameraControl(glm::vec3 pos, glm::vec3 up = glm::vec3(0, 1, 0), float pitch = 10.0f, float yaw = 10.0f) : _pos(pos), _worldUp(up)
+	glm::vec3 pos;
 
+	float pitch; // 俯仰角
+	float yaw; // 偏航角
+
+	CameraControl(glm::vec3 mPos, glm::vec3 up = glm::vec3(0, 1, 0), float _pitch = 10.0f,
+	              float _yaw = 10.0f) : _worldUp(up), pos(mPos)
 	{
 		_cameraMoveSpeed = 1.0f;
 		_cameraSensitive = 0.01f;
 
-		_pitch = pitch;
-		_yaw = yaw;
+		pitch = _pitch;
+		yaw = _yaw;
+
 		_fov = 55.0f;
 
 		updateCameraVectors();
-	}
-
-	~CameraControl()
-	{
 	}
 
 	void handleWindowKeyBoard(Camera_Movement movement, float deltaTime)
 	{
 		if (movement == FORWARD)
 		{
-			_pos += _front * _cameraMoveSpeed * deltaTime;
+			pos += _front * _cameraMoveSpeed * deltaTime;
 		}
 		if (movement == BACKWARD)
 		{
-			_pos -= _front * _cameraMoveSpeed * deltaTime;
+			pos -= _front * _cameraMoveSpeed * deltaTime;
 		}
 		if (movement == LEFT)
 		{
-			_pos -= _right * _cameraMoveSpeed * deltaTime;
+			pos -= _right * _cameraMoveSpeed * deltaTime;
 		}
 		if (movement == RIGHT)
 		{
-			_pos += _right * _cameraMoveSpeed * deltaTime;
+			pos += _right * _cameraMoveSpeed * deltaTime;
 		}
 		updateCameraVectors();
 	}
 
 	void processMouseMovement(float xOffset, float yOffset)
 	{
-		_yaw += xOffset * _cameraSensitive;
-		_pitch += yOffset * _cameraSensitive;
+		yaw += xOffset * _cameraSensitive;
+		pitch += yOffset * _cameraSensitive;
 
 		const float maxPitch = 89;
 		const float minPitch = -maxPitch;
 
-		if (_pitch > maxPitch)
+		if (pitch > maxPitch)
 		{
-			_pitch = maxPitch;
+			pitch = maxPitch;
 		}
 
-		if (_pitch < minPitch)
+		if (pitch < minPitch)
 		{
-			_pitch = minPitch;
+			pitch = minPitch;
 		}
 
 		updateCameraVectors();
@@ -161,8 +146,8 @@ public:
 
 	glm::mat4 viewLookAtMat4() const
 	{
-		const glm::vec3 eye = _pos;
-		const glm::vec3 center = _pos + _front;
+		const glm::vec3 eye = pos;
+		const glm::vec3 center = pos + _front;
 		const glm::vec3 up = _up;
 
 		return customLookAtMat4(eye, center, up);
@@ -172,4 +157,21 @@ public:
 	{
 		return _fov;
 	}
+
+	void updateCameraVectors();
 };
+
+inline auto CameraControl::updateCameraVectors() -> void
+{
+	const float radiansXy = glm::radians(pitch);
+	const float radiansXz = glm::radians(yaw);
+	const float xzRadius = glm::cos(radiansXy);
+
+	const float directionX = glm::sin(radiansXz) * xzRadius;
+	const float directionY = glm::sin(radiansXy);
+	const float directionZ = -glm::cos(radiansXz) * xzRadius;
+
+	_front = glm::normalize(glm::vec3(directionX, directionY, directionZ));
+	_right = glm::normalize(glm::cross(_front, _worldUp));
+	_up = glm::normalize(glm::cross(_right, _front));
+}

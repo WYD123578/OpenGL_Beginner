@@ -122,6 +122,9 @@
     <ClInclude Include="Plugin\imgui\imgui_impl_opengl3_loader.h">
       <Filter>imgui</Filter>
     </ClInclude>
+    <ClInclude Include="Tool\ImGuiWindow.h">
+      <Filter>头文件\Tool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resource\container.jpg">
@@ -142,6 +145,12 @@
       <Filter>resource\Shader</Filter>
     </None>
     <None Include="Shader\LampShader.vs">
+      <Filter>resource\Shader</Filter>
+    </None>
+    <None Include="Shader\ObjectShader.fs">
+      <Filter>resource\Shader</Filter>
+    </None>
+    <None Include="Shader\ObjectShader.vs">
       <Filter>resource\Shader</Filter>
     </None>
   </ItemGroup>

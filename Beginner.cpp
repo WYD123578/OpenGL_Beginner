@@ -5,17 +5,16 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <iomanip>
 
-#include "Plugin/stb_image.h"
+#include <Plugin/stb_image.h>
 #include <Tool/Shader.h>
 #include <Tool/CameraControl.h>
+#include <Tool/ImGuiWindow.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include <Plugin/imgui/imgui.h>
-#include <Plugin/imgui/imgui_impl_glfw.h>
-#include <Plugin/imgui/imgui_impl_opengl3.h>
+
 
 using namespace std;
 
@@ -148,21 +147,8 @@ int main()
 		cout << "GLAD加载函数失败" << endl;
 	}
 
-	// ===================================================
-	//IMGUI_CHECKVERSION();
-
-	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	ImGui::StyleColorsDark();
-
-	ImGui_ImplGlfw_InitForOpenGL(window, true);
-	ImGui_ImplOpenGL3_Init("#version 130");
-
-	bool show_demo_window = true;
-	bool show_another_window = false;
-	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-
-	// ===================================================
+	// 创建imGui窗口
+	ImGuiWindow imGuiWin(window, camera);
 
 	float vertices[] = {
 		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
@@ -235,7 +221,7 @@ int main()
 	}
 
 	// 准备ShaderProgram
-	Shader objectShader("Shader/Texture.vs", "Shader/Texture.fs");
+	Shader objectShader("Shader/ObjectShader.vs", "Shader/ObjectShader.fs");
 	if (objectShader.ID == 0)
 	{
 		cout << "there is no shader program" << endl;
@@ -257,53 +243,10 @@ int main()
 	float deltaTime = 0.0f;
 	float lastFrame = 0.0f;
 
-	// 定义光照颜色
-	constexpr glm::vec3 lightColor = glm::vec3(1.0, 1.0, 1.0);
-
-
 	while (!glfwWindowShouldClose(window))
 	{
 		// ---------------------
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
-
-		if (show_demo_window)
-			ImGui::ShowDemoWindow(&show_demo_window);
-
-		{
-			static float f = 0.0f;
-			static int counter = 0;
-
-			ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
-
-			ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
-			ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
-			ImGui::Checkbox("Another Window", &show_another_window);
-
-			ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-			ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
-
-			if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-				counter++;
-			ImGui::SameLine();
-			ImGui::Text("counter = %d", counter);
-
-			ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-			ImGui::End();
-		}
-
-		if (show_another_window)
-		{
-			ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-			ImGui::Text("Hello from another window!");
-			if (ImGui::Button("Close Me"))
-				show_another_window = false;
-			ImGui::End();
-		}
-
-		// Rendering
-		ImGui::Render();
+		imGuiWin.updateWindow();
 
 		// 清除屏幕
 		glClearColor(0, 0, 0, 1);
@@ -323,16 +266,20 @@ int main()
 			static_cast<float>(screenWidth) / static_cast<float>(screenHeight), 1.0f,
 			100.0f);
 
-		glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
-
 		objectShader.use();
 		{
 			// 设置物体Shader
 			glm::mat4 model(1.0f);
 
-			objectShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
-			objectShader.setVec3("lightColor", lightColor);
-			objectShader.setVec3("lightPos", lightPos);
+			objectShader.setVec3("objectColor", imGuiWin.object_color);
+			objectShader.setVec3("lightColor", imGuiWin.light_color);
+			objectShader.setVec3("lightPos", imGuiWin.light_pos);
+			objectShader.setVec3("viewPos", camera.pos);
+			//objectShader.setVec3("lightDir", imGuiWin.light_dir);
+
+			objectShader.setFloat("ambientStrength", imGuiWin.ambient_strength);
+			objectShader.setFloat("decayRate", imGuiWin.decay_rate);
+			objectShader.setFloat("specularDecayRate", imGuiWin.specular_decay_rate);
 
 			objectShader.setMatrix4("model", glm::value_ptr(model));
 			objectShader.setMatrix4("view", glm::value_ptr(view));
@@ -346,7 +293,7 @@ int main()
 		lightShader.use();
 		{
 			glm::mat4 model(1.0f);
-			model = glm::translate(model, lightPos);
+			model = glm::translate(model, imGuiWin.light_pos);
 			model = glm::scale(model, glm::vec3(0.5, 0.5, 0.5));
 
 			lightShader.setMatrix4("model", glm::value_ptr(model));
@@ -358,7 +305,7 @@ int main()
 		}
 
 		// 放在最后绘制窗口
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+		ImGuiWindow::render();
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();

@@ -180,6 +180,7 @@
     <ClInclude Include="Plugin\stb_image.h" />
     <ClInclude Include="Tool\Camera.h" />
     <ClInclude Include="Tool\CameraControl.h" />
+    <ClInclude Include="Tool\ImGuiWindow.h" />
     <ClInclude Include="Tool\Shader.h" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +190,8 @@
   <ItemGroup>
     <None Include="Shader\LampShader.fs" />
     <None Include="Shader\LampShader.vs" />
+    <None Include="Shader\ObjectShader.fs" />
+    <None Include="Shader\ObjectShader.vs" />
     <None Include="Shader\Texture.fs" />
     <None Include="Shader\Texture.vs" />
   </ItemGroup>
