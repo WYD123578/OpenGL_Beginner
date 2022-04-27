@@ -2,14 +2,13 @@
 
 in vec3 FragPos;
 in vec3 Normal;
+in vec3 LightPos;
 
 out vec4 FragColor;
 
 uniform vec3 objectColor;
 uniform vec3 lightColor;
-uniform vec3 lightPos;
 
-uniform vec3 viewPos;
 // 平行光源方向
 // uniform vec3 lightDir;
 
@@ -20,24 +19,16 @@ uniform float specularDecayRate;
 
 void main()
 {
+	// ambient
 	vec3 ambient = ambientStrength * lightColor;
 
+	// diffuse
 	vec3 norm = normalize(Normal);
-
-	vec3 light = lightPos - FragPos;
-	vec3 lightDir = normalize(light);
-
-	// 点光源随距离衰减，定义一个衰减系数，系数越大，衰减越厉害
-	float energyDecay = dot(light, light) * decayRate;
-	
+	vec3 lightDir = normalize(LightPos - FragPos);
 	vec3 diffuse = lightColor * max(dot(norm, lightDir), 0.0);
-	// 一定范围内衰减
-	if(energyDecay > 0.1f)
-	{
-		//diffuse = diffuse / energyDecay;
-	}
 
-	vec3 viewDir = normalize(viewPos - FragPos);
+	// specular
+	vec3 viewDir = normalize(-FragPos); // 视图空间中，视点位置一直是(0,0,0)
 	vec3 halfVec = normalize(viewDir + lightDir);
 	vec3 specular = 0.5 * lightColor * pow(max(dot(halfVec, norm), 0.0f), specularDecayRate);
 	

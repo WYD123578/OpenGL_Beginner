@@ -11,7 +11,6 @@ public:
 	CameraControl& _camera;
 
 	float ambient_strength = 0.1f;
-	float decay_rate = 0.1f;
 	float specular_decay_rate = 32;
 
 	// float pitch = 0.0f;
@@ -76,11 +75,10 @@ private:
 		static float f = 0.0f;
 		static int counter = 0;
 
-		ImGui::Begin("Light Setting"); // Create a window called "Hello, world!" and append into it.
+		ImGui::Begin("Light Setting");
 		
-		ImGui::Checkbox("Demo Window", &show_demo_window); // Edit bools storing our window open/close state
+		ImGui::Checkbox("Demo Window", &show_demo_window);
 		ImGui::SliderFloat("ambient strength", &ambient_strength, 0.0f, 1.0f);
-		ImGui::SliderFloat("decay rate", &decay_rate, 0.0f, 1.0f);
 		ImGui::SliderFloat("specular decay rate", &specular_decay_rate, 0.0f, 256.0f);
 
 		// ImGui::SliderFloat("light pitch", &pitch, -89.0f, 89.0f);
@@ -90,14 +88,11 @@ private:
 		ImGui::ColorEdit3("light color", reinterpret_cast<float*>(&light_color));
 		ImGui::ColorEdit3("object color", reinterpret_cast<float*>(&object_color));
 
-		if (ImGui::Button("Button"))
-			// Buttons return true when clicked (most widgets return true when edited/activated)
-			counter++;
 		ImGui::SameLine();
 		ImGui::Text("counter = %d", counter);
-
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate,
 			ImGui::GetIO().Framerate);
+
 		ImGui::End();
 	}
 

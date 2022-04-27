@@ -270,15 +270,14 @@ int main()
 		{
 			// 设置物体Shader
 			glm::mat4 model(1.0f);
+			model = glm::rotate(model, glm::radians(50* currentFrame), glm::vec3(0.0, 1.0, 0.0));
 
 			objectShader.setVec3("objectColor", imGuiWin.object_color);
 			objectShader.setVec3("lightColor", imGuiWin.light_color);
 			objectShader.setVec3("lightPos", imGuiWin.light_pos);
-			objectShader.setVec3("viewPos", camera.pos);
 			//objectShader.setVec3("lightDir", imGuiWin.light_dir);
 
 			objectShader.setFloat("ambientStrength", imGuiWin.ambient_strength);
-			objectShader.setFloat("decayRate", imGuiWin.decay_rate);
 			objectShader.setFloat("specularDecayRate", imGuiWin.specular_decay_rate);
 
 			objectShader.setMatrix4("model", glm::value_ptr(model));
