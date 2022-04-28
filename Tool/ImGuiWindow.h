@@ -10,16 +10,23 @@ public:
 
 	CameraControl& _camera;
 
-	float ambient_strength = 0.1f;
-	float specular_decay_rate = 32;
 
 	// float pitch = 0.0f;
 	// float yaw = 0.0f;
 	// glm::vec3 light_dir = glm::vec3(0.0, 0.0, 0.0);
 
+	// 物体参数
+	glm::vec3 ambient = glm::vec3(0.0, 0.1, 0.06);
+	glm::vec3 diffuse = glm::vec3(0.0, 0.50980392, 0.50980392);
+	glm::vec3 specular = glm::vec3(0.50196078, 0.50196078, 0.50196078);
+	float shininess = .25 * 128.0;
+
+	// 灯光参数
 	glm::vec3 light_color = glm::vec3(1.0f, 1.0f, 1.0f);
 	glm::vec3 light_pos = glm::vec3(1.2f, 1.0f, 2.0f);
-	glm::vec3 object_color = glm::vec3(0.45f, 0.55f, 0.60f);
+	glm::vec3 light_ambient = glm::vec3(0.2f);
+	glm::vec3 light_diffuse = glm::vec3(1.0f);
+	glm::vec3 light_specular = glm::vec3(1.0f);
 
 	ImGuiWindow(GLFWwindow* window, CameraControl& camera): _camera(camera)
 	{
@@ -47,6 +54,7 @@ public:
 			ImGui::ShowDemoWindow(&show_demo_window);
 
 		drawCameraSettingWindow();
+		drawObjectSettingWindow();
 		drawLightSettingWindow();
 
 		// calcLightDir();
@@ -72,26 +80,30 @@ private:
 
 	void drawLightSettingWindow()
 	{
-		static float f = 0.0f;
-		static int counter = 0;
-
 		ImGui::Begin("Light Setting");
 		
-		ImGui::Checkbox("Demo Window", &show_demo_window);
-		ImGui::SliderFloat("ambient strength", &ambient_strength, 0.0f, 1.0f);
-		ImGui::SliderFloat("specular decay rate", &specular_decay_rate, 0.0f, 256.0f);
-
-		// ImGui::SliderFloat("light pitch", &pitch, -89.0f, 89.0f);
-		// ImGui::SliderFloat("light yaw", &yaw, -89.0f, 89.0f);
 
 		ImGui::SliderFloat3("light pos", reinterpret_cast<float*>(&light_pos), -5.0f, 5.0f);
 		ImGui::ColorEdit3("light color", reinterpret_cast<float*>(&light_color));
-		ImGui::ColorEdit3("object color", reinterpret_cast<float*>(&object_color));
+		ImGui::ColorEdit3("light ambient", reinterpret_cast<float*>(&light_ambient));
+		ImGui::ColorEdit3("light diffuse", reinterpret_cast<float*>(&light_diffuse));
+		ImGui::ColorEdit3("light specular", reinterpret_cast<float*>(&light_specular));
 
 		ImGui::SameLine();
-		ImGui::Text("counter = %d", counter);
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate,
 			ImGui::GetIO().Framerate);
+
+		ImGui::End();
+	}
+
+	void drawObjectSettingWindow()
+	{
+		ImGui::Begin("Object Setting");
+
+		ImGui::ColorEdit3("ambient", reinterpret_cast<float*>(&ambient));
+		ImGui::ColorEdit3("diffuse", reinterpret_cast<float*>(&diffuse));
+		ImGui::ColorEdit3("specular", reinterpret_cast<float*>(&specular));
+		ImGui::SliderFloat("shininess", &shininess, 0.0f, 256.0f);
 
 		ImGui::End();
 	}

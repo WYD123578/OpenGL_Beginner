@@ -272,13 +272,17 @@ int main()
 			glm::mat4 model(1.0f);
 			model = glm::rotate(model, glm::radians(50* currentFrame), glm::vec3(0.0, 1.0, 0.0));
 
-			objectShader.setVec3("objectColor", imGuiWin.object_color);
-			objectShader.setVec3("lightColor", imGuiWin.light_color);
-			objectShader.setVec3("lightPos", imGuiWin.light_pos);
-			//objectShader.setVec3("lightDir", imGuiWin.light_dir);
+			objectShader.setVec3("material.ambient", imGuiWin.ambient);
+			objectShader.setVec3("material.diffuse", imGuiWin.diffuse);
+			objectShader.setVec3("material.specular", imGuiWin.specular);
+			objectShader.setFloat("material.shininess", imGuiWin.shininess);
 
-			objectShader.setFloat("ambientStrength", imGuiWin.ambient_strength);
-			objectShader.setFloat("specularDecayRate", imGuiWin.specular_decay_rate);
+			objectShader.setVec3("light.color", imGuiWin.light_color);
+			objectShader.setVec3("lightPos", imGuiWin.light_pos);
+			objectShader.setVec3("light.ambient", imGuiWin.light_ambient);
+			objectShader.setVec3("light.diffuse", imGuiWin.light_diffuse);
+			objectShader.setVec3("light.specular", imGuiWin.light_specular);
+			//objectShader.setVec3("lightDir", imGuiWin.light_dir);
 
 			objectShader.setMatrix4("model", glm::value_ptr(model));
 			objectShader.setMatrix4("view", glm::value_ptr(view));
