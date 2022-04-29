@@ -99,9 +99,7 @@ private:
 	void drawObjectSettingWindow()
 	{
 		ImGui::Begin("Object Setting");
-
-		ImGui::ColorEdit3("ambient", reinterpret_cast<float*>(&ambient));
-		ImGui::ColorEdit3("diffuse", reinterpret_cast<float*>(&diffuse));
+		
 		ImGui::ColorEdit3("specular", reinterpret_cast<float*>(&specular));
 		ImGui::SliderFloat("shininess", &shininess, 0.0f, 256.0f);
 

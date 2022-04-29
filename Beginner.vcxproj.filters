@@ -34,6 +34,9 @@
     <Filter Include="imgui">
       <UniqueIdentifier>{80312344-25b2-4583-b476-24baa9082e50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resource\Picture">
+      <UniqueIdentifier>{2409cc7a-ed2d-4df2-b066-6f2be256d31b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Beginner.cpp">
@@ -127,11 +130,23 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resource\container.jpg">
-      <Filter>resource</Filter>
-    </Image>
     <Image Include="Resource\awesomeface.png">
-      <Filter>resource</Filter>
+      <Filter>resource\Picture</Filter>
+    </Image>
+    <Image Include="Resource\container.jpg">
+      <Filter>resource\Picture</Filter>
+    </Image>
+    <Image Include="Resource\container2.png">
+      <Filter>resource\Picture</Filter>
+    </Image>
+    <Image Include="Resource\container2_specular.png">
+      <Filter>resource\Picture</Filter>
+    </Image>
+    <Image Include="Resource\lighting_maps_specular_color.png">
+      <Filter>resource\Picture</Filter>
+    </Image>
+    <Image Include="Resource\matrix.jpg">
+      <Filter>resource\Picture</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

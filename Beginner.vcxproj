@@ -186,6 +186,10 @@
   <ItemGroup>
     <Image Include="Resource\awesomeface.png" />
     <Image Include="Resource\container.jpg" />
+    <Image Include="Resource\container2.png" />
+    <Image Include="Resource\container2_specular.png" />
+    <Image Include="Resource\lighting_maps_specular_color.png" />
+    <Image Include="Resource\matrix.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Shader\LampShader.fs" />
