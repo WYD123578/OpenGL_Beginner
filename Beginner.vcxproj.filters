@@ -150,22 +150,28 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shader\Texture.fs">
+    <None Include="Shader\2_0_0_LampShader.fs">
       <Filter>resource\Shader</Filter>
     </None>
-    <None Include="Shader\Texture.vs">
-      <Filter>resource\Shader</Filter>
-    </None>
-    <None Include="Shader\LampShader.fs">
-      <Filter>resource\Shader</Filter>
-    </None>
-    <None Include="Shader\LampShader.vs">
+    <None Include="Shader\2_0_0_LampShader.vs">
       <Filter>resource\Shader</Filter>
     </None>
     <None Include="Shader\ObjectShader.fs">
       <Filter>resource\Shader</Filter>
     </None>
     <None Include="Shader\ObjectShader.vs">
+      <Filter>resource\Shader</Filter>
+    </None>
+    <None Include="Shader\2_1_2_PointLightShader.fs">
+      <Filter>resource\Shader</Filter>
+    </None>
+    <None Include="Shader\2_1_2_PointLightShader.vs">
+      <Filter>resource\Shader</Filter>
+    </None>
+    <None Include="Shader\2_1_3_SpotLightShader.fs">
+      <Filter>resource\Shader</Filter>
+    </None>
+    <None Include="Shader\2_1_3_SpotLightShader.vs">
       <Filter>resource\Shader</Filter>
     </None>
   </ItemGroup>

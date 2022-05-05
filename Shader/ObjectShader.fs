@@ -2,16 +2,15 @@
 
 in vec3 FragPos;
 in vec3 Normal;
-in vec3 LightPos;
 in vec2 TexCoords;
 
 out vec4 FragColor;
 
-// 平行光源方向
-// uniform vec3 lightDir;
-
-struct Light {
+struct DirectionLight {
 	
+	// 平行光源方向
+	vec3 direction;
+
 	vec3 color;
 
 	vec3 ambient;
@@ -20,6 +19,18 @@ struct Light {
 
 	float decayRate;
 };
+
+struct SpotLight {
+	vec3 position;
+
+	vec3 ambient;
+	vec3 diffuse;
+	vec3 specular;
+
+	float constant;
+	float linear;
+	float quadratic;
+}
 
 struct Material {
 	sampler2D texture;
@@ -30,7 +41,7 @@ struct Material {
 };
 
 uniform Material material;
-uniform Light light;
+uniform DirectionLight light;
 
 void main()
 {
@@ -52,7 +63,7 @@ void main()
 
 	// diffuse
 	vec3 norm = normalize(Normal);
-	vec3 lightDir = normalize(LightPos - FragPos);
+	vec3 lightDir = normalize(-light.direction); // 因为我们算的时候都是从片元指向光源的，而定义的光源方向是光源指向片元的
 	vec3 diffuse = light.color * light.diffuse * texSample * max(dot(norm, lightDir), 0.0);
 
 	// specular

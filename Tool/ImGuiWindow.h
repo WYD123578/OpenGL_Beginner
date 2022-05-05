@@ -24,6 +24,7 @@ public:
 	// µÆ¹â²ÎÊý
 	glm::vec3 light_color = glm::vec3(1.0f, 1.0f, 1.0f);
 	glm::vec3 light_pos = glm::vec3(1.2f, 1.0f, 2.0f);
+	glm::vec3 light_direction = glm::vec3(0.0, 0.0, 0.0);
 	glm::vec3 light_ambient = glm::vec3(0.2f);
 	glm::vec3 light_diffuse = glm::vec3(1.0f);
 	glm::vec3 light_specular = glm::vec3(1.0f);
@@ -84,6 +85,7 @@ private:
 		
 
 		ImGui::SliderFloat3("light pos", reinterpret_cast<float*>(&light_pos), -5.0f, 5.0f);
+		ImGui::SliderFloat3("light direction", reinterpret_cast<float*>(&light_direction), -20.0f, 20.0f);
 		ImGui::ColorEdit3("light color", reinterpret_cast<float*>(&light_color));
 		ImGui::ColorEdit3("light ambient", reinterpret_cast<float*>(&light_ambient));
 		ImGui::ColorEdit3("light diffuse", reinterpret_cast<float*>(&light_diffuse));

@@ -192,12 +192,14 @@
     <Image Include="Resource\matrix.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shader\LampShader.fs" />
-    <None Include="Shader\LampShader.vs" />
+    <None Include="Shader\2_1_2_PointLightShader.fs" />
+    <None Include="Shader\2_1_2_PointLightShader.vs" />
+    <None Include="Shader\2_0_0_LampShader.fs" />
+    <None Include="Shader\2_0_0_LampShader.vs" />
+    <None Include="Shader\2_1_3_SpotLightShader.fs" />
+    <None Include="Shader\2_1_3_SpotLightShader.vs" />
     <None Include="Shader\ObjectShader.fs" />
     <None Include="Shader\ObjectShader.vs" />
-    <None Include="Shader\Texture.fs" />
-    <None Include="Shader\Texture.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

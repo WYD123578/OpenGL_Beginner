@@ -244,14 +244,14 @@ int main()
 	}
 
 	// 准备ShaderProgram
-	Shader objectShader("Shader/ObjectShader.vs", "Shader/ObjectShader.fs");
+	Shader objectShader("Shader/2_1_3_SpotLightShader.vs", "Shader/2_1_3_SpotLightShader.fs");
 	if (objectShader.ID == 0)
 	{
 		cout << "there is no shader program" << endl;
 		return -1;
 	}
 
-	Shader lightShader("Shader/LampShader.vs", "Shader/LampShader.fs");
+	Shader lightShader("Shader/2_0_0_LampShader.vs", "Shader/2_0_0_LampShader.fs");
 	if (lightShader.ID == 0)
 	{
 		cout << "there is no shader program" << endl;
@@ -261,7 +261,6 @@ int main()
 	// 加载贴图
 	unsigned int diffuseTexture = load_texture_from_resource("container2.png");
 	unsigned int specularTexture = load_texture_from_resource("lighting_maps_specular_color.png");
-	unsigned int emissionTexture = load_texture_from_resource("matrix.jpg");
 
 	// 开启深度测试
 	glEnable(GL_DEPTH_TEST);
@@ -298,37 +297,48 @@ int main()
 		objectShader.use();
 		{
 			// 设置物体Shader
-			// model = glm::rotate(model, glm::radians(50* currentFrame), glm::vec3(0.0, 1.0, 0.0));
 
-			//objectShader.setVec3("material.ambient", imGuiWin.ambient);
-			//objectShader.setVec3("material.diffuse", imGuiWin.diffuse);
-			objectShader.setInt("material.texture", 0);
-			objectShader.setInt("material.specular", 1);
-			objectShader.setInt("material.emission", 2);
-			objectShader.setFloat("material.shininess", imGuiWin.shininess);
-
-			objectShader.setVec3("light.color", imGuiWin.light_color);
-			objectShader.setVec3("lightPos", imGuiWin.light_pos);
-			objectShader.setVec3("light.ambient", imGuiWin.light_ambient);
-			objectShader.setVec3("light.diffuse", imGuiWin.light_diffuse);
-			objectShader.setVec3("light.specular", imGuiWin.light_specular);
-			//objectShader.setVec3("lightDir", imGuiWin.light_dir);
-
-			objectShader.setMatrix4("model", glm::value_ptr(model));
+			// 顶点Shader
 			objectShader.setMatrix4("view", glm::value_ptr(view));
 			objectShader.setMatrix4("projection", glm::value_ptr(projection));
 
+			// 片元Shader
+			objectShader.setInt("material.texture", 0);
+			objectShader.setInt("material.specular", 1);
+			objectShader.setFloat("material.shininess", imGuiWin.shininess);
+
+			objectShader.setVec3("light.color", imGuiWin.light_color);
+			objectShader.setVec3("light.position", imGuiWin.light_pos);
+
+			objectShader.setVec3("light.ambient", imGuiWin.light_ambient);
+			objectShader.setVec3("light.diffuse", imGuiWin.light_diffuse);
+			objectShader.setVec3("light.specular", imGuiWin.light_specular);
+
+			objectShader.setVec3("light.direction", imGuiWin.light_direction);
+			objectShader.setFloat("light.cutOff", glm::cos(glm::radians(12.0f)));
+			objectShader.setFloat("light.outerCutOff", glm::cos(glm::radians(24.0f)));
+
+			objectShader.setVec3("worldCameraPos", imGuiWin._camera.pos);
+
+			// DrawCall
 			glBindVertexArray(VAO);
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, diffuseTexture);
 			glActiveTexture(GL_TEXTURE1);
 			glBindTexture(GL_TEXTURE_2D, specularTexture);
-			glActiveTexture(GL_TEXTURE2);
-			glBindTexture(GL_TEXTURE_2D, emissionTexture);
-			glDrawArrays(GL_TRIANGLES, 0, 36);
+			for (int i = 0; i< 10 ; i++)
+			{
+				float angle = 20.0f * i;
+				model = glm::mat4(1.0f);
+				model = glm::translate(model, glm::vec3(2.0f * i, 0.0f, 0.0f));
+				model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+				objectShader.setMatrix4("model", glm::value_ptr(model));
+
+				glDrawArrays(GL_TRIANGLES, 0, 36);
+			}
 		}
 
-		// 绘制光源
+		// 绘制标识光源的物体
 		lightShader.use();
 		{
 			model = glm::mat4(1.0f);
@@ -357,6 +367,13 @@ int main()
 
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
+
+	// 删除图片缓存
+	glDeleteTextures(3, new unsigned int[] {diffuseTexture, specularTexture});
+
+	// 删除Shader Program
+	glDeleteProgram(objectShader.ID);
+	glDeleteProgram(lightShader.ID);
 
 	glfwDestroyWindow(window);
 	glfwTerminate();
