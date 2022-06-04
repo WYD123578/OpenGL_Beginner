@@ -14,8 +14,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-
-
 using namespace std;
 
 GLFWwindow* window;
@@ -130,8 +128,17 @@ void processWindowKeyboardInput(float deltaTime)
 		camera.handleWindowKeyBoard(RIGHT, deltaTime);
 }
 
+void error_callback(int error, const char* msg) {
+	std::string s;
+	s = " [" + std::to_string(error) + "] " + msg + '\n';
+	std::cerr << s << std::endl;
+}
+
+Light* lightsInScene = new Light[8]();
+
 int main()
 {
+	glfwSetErrorCallback(error_callback);
 	if (!glfwInit())
 	{
 		cout << "初始化GLFW失败" << endl;
@@ -244,7 +251,7 @@ int main()
 	}
 
 	// 准备ShaderProgram
-	Shader objectShader("Shader/2_1_3_SpotLightShader.vs", "Shader/2_1_3_SpotLightShader.fs");
+	Shader objectShader("Shader/3_1_1_LightShade.vs", "Shader/3_1_1_LightShade.fs");
 	if (objectShader.ID == 0)
 	{
 		cout << "there is no shader program" << endl;
@@ -268,6 +275,10 @@ int main()
 	// 渲染时间
 	float deltaTime = 0.0f;
 	float lastFrame = 0.0f;
+
+	// 添加光照
+	DirectionLight dirLight = DirectionLight();
+	imGuiWin.addLight(&dirLight);
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -293,7 +304,6 @@ int main()
 			static_cast<float>(screenWidth) / static_cast<float>(screenHeight), 1.0f,
 			100.0f);
 
-
 		objectShader.use();
 		{
 			// 设置物体Shader
@@ -307,14 +317,14 @@ int main()
 			objectShader.setInt("material.specular", 1);
 			objectShader.setFloat("material.shininess", imGuiWin.shininess);
 
-			objectShader.setVec3("light.color", imGuiWin.light_color);
-			objectShader.setVec3("light.position", imGuiWin.light_pos);
-
-			objectShader.setVec3("light.ambient", imGuiWin.light_ambient);
-			objectShader.setVec3("light.diffuse", imGuiWin.light_diffuse);
-			objectShader.setVec3("light.specular", imGuiWin.light_specular);
-
-			objectShader.setVec3("light.direction", imGuiWin.light_direction);
+			objectShader.setVec3("dirLight.color", dirLight.color);
+			objectShader.setVec3("dirLight.position", dirLight.pos);
+			
+			objectShader.setVec3("dirLight.ambient", dirLight.ambient);
+			objectShader.setVec3("dirLight.diffuse", dirLight.diffuse);
+			objectShader.setVec3("dirLight.specular", dirLight.specular);
+			
+			objectShader.setVec3("dirLight.direction", dirLight.pos);
 			objectShader.setFloat("light.cutOff", glm::cos(glm::radians(12.0f)));
 			objectShader.setFloat("light.outerCutOff", glm::cos(glm::radians(24.0f)));
 
@@ -342,7 +352,7 @@ int main()
 		lightShader.use();
 		{
 			model = glm::mat4(1.0f);
-			model = glm::translate(model, imGuiWin.light_pos);
+			model = glm::translate(model, dirLight.pos);
 			model = glm::scale(model, glm::vec3(0.2f));
 
 			lightShader.setMatrix4("model", glm::value_ptr(model));

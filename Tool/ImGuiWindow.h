@@ -3,13 +3,13 @@
 #include <Plugin/imgui/imgui_impl_glfw.h>
 #include <Plugin/imgui/imgui_impl_opengl3.h>
 
+#include "Light/DirectionLight.h"
+
 class ImGuiWindow
 {
 public:
 	bool show_demo_window = false;
-
 	CameraControl& _camera;
-
 
 	// float pitch = 0.0f;
 	// float yaw = 0.0f;
@@ -21,13 +21,6 @@ public:
 	glm::vec3 specular = glm::vec3(0.50196078, 0.50196078, 0.50196078);
 	float shininess = .25 * 128.0;
 
-	// 灯光参数
-	glm::vec3 light_color = glm::vec3(1.0f, 1.0f, 1.0f);
-	glm::vec3 light_pos = glm::vec3(1.2f, 1.0f, 2.0f);
-	glm::vec3 light_direction = glm::vec3(0.0, 0.0, 0.0);
-	glm::vec3 light_ambient = glm::vec3(0.2f);
-	glm::vec3 light_diffuse = glm::vec3(1.0f);
-	glm::vec3 light_specular = glm::vec3(1.0f);
 
 	ImGuiWindow(GLFWwindow* window, CameraControl& camera): _camera(camera)
 	{
@@ -56,19 +49,35 @@ public:
 
 		drawCameraSettingWindow();
 		drawObjectSettingWindow();
-		drawLightSettingWindow();
 
-		// calcLightDir();
-
+		for (int i = 0; i < _currentLightCount; i++)
+		{
+			//std::cout << &(_lights[i].pos) << std::endl;
+			drawLightSettingWindow(_lights[i]);
+		}
+		
 		// Rendering
 		ImGui::Render();
+	}
+
+	bool addLight(Light* light)
+	{
+		if (_currentLightCount >= 8) return false;
+		
+		_lights[_currentLightCount++] = light;
+		return true;
 	}
 
 	static void render()
 	{
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
+
 private:
+	// 灯光参数
+	Light* _lights[8];
+	int _currentLightCount = 0;
+
 	void drawCameraSettingWindow() const
 	{
 		ImGui::Begin("Camera Setting");
@@ -79,21 +88,15 @@ private:
 		ImGui::End();
 	}
 
-	void drawLightSettingWindow()
+	void drawLightSettingWindow(Light* light) const
 	{
 		ImGui::Begin("Light Setting");
 		
-
-		ImGui::SliderFloat3("light pos", reinterpret_cast<float*>(&light_pos), -5.0f, 5.0f);
-		ImGui::SliderFloat3("light direction", reinterpret_cast<float*>(&light_direction), -20.0f, 20.0f);
-		ImGui::ColorEdit3("light color", reinterpret_cast<float*>(&light_color));
-		ImGui::ColorEdit3("light ambient", reinterpret_cast<float*>(&light_ambient));
-		ImGui::ColorEdit3("light diffuse", reinterpret_cast<float*>(&light_diffuse));
-		ImGui::ColorEdit3("light specular", reinterpret_cast<float*>(&light_specular));
-
-		ImGui::SameLine();
-		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate,
-			ImGui::GetIO().Framerate);
+		ImGui::SliderFloat3("light pos",reinterpret_cast<float*>(&(light->pos)), -5.0f, 5.0f);
+		ImGui::ColorEdit3("light color", reinterpret_cast<float*>(&(light->color)));
+		ImGui::ColorEdit3("light ambient", reinterpret_cast<float*>(&(light->ambient)));
+		ImGui::ColorEdit3("light diffuse", reinterpret_cast<float*>(&(light->diffuse)));
+		ImGui::ColorEdit3("light specular", reinterpret_cast<float*>(&(light->specular)));
 
 		ImGui::End();
 	}
@@ -101,7 +104,7 @@ private:
 	void drawObjectSettingWindow()
 	{
 		ImGui::Begin("Object Setting");
-		
+
 		ImGui::ColorEdit3("specular", reinterpret_cast<float*>(&specular));
 		ImGui::SliderFloat("shininess", &shininess, 0.0f, 256.0f);
 

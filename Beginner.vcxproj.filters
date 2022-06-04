@@ -37,6 +37,9 @@
     <Filter Include="resource\Picture">
       <UniqueIdentifier>{2409cc7a-ed2d-4df2-b066-6f2be256d31b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Light">
+      <UniqueIdentifier>{7f81821b-7990-480a-8093-6b64e7edbb6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Beginner.cpp">
@@ -128,6 +131,12 @@
     <ClInclude Include="Tool\ImGuiWindow.h">
       <Filter>头文件\Tool</Filter>
     </ClInclude>
+    <ClInclude Include="Light\DirectionLight.h">
+      <Filter>头文件\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Light\Light.h">
+      <Filter>头文件\Light</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resource\awesomeface.png">
@@ -172,6 +181,12 @@
       <Filter>resource\Shader</Filter>
     </None>
     <None Include="Shader\2_1_3_SpotLightShader.vs">
+      <Filter>resource\Shader</Filter>
+    </None>
+    <None Include="Shader\3_1_1_LightShade.fs">
+      <Filter>resource\Shader</Filter>
+    </None>
+    <None Include="Shader\3_1_1_LightShade.vs">
       <Filter>resource\Shader</Filter>
     </None>
   </ItemGroup>

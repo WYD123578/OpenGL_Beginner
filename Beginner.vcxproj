@@ -168,6 +168,8 @@
     <ClInclude Include="Display.h" />
     <ClInclude Include="DisplayManager.h" />
     <ClInclude Include="GraphicBooster.h" />
+    <ClInclude Include="Light\DirectionLight.h" />
+    <ClInclude Include="Light\Light.h" />
     <ClInclude Include="Plugin\imgui\imconfig.h" />
     <ClInclude Include="Plugin\imgui\imgui.h" />
     <ClInclude Include="Plugin\imgui\imgui_impl_glfw.h" />
@@ -198,6 +200,8 @@
     <None Include="Shader\2_0_0_LampShader.vs" />
     <None Include="Shader\2_1_3_SpotLightShader.fs" />
     <None Include="Shader\2_1_3_SpotLightShader.vs" />
+    <None Include="Shader\3_1_1_LightShade.fs" />
+    <None Include="Shader\3_1_1_LightShade.vs" />
     <None Include="Shader\ObjectShader.fs" />
     <None Include="Shader\ObjectShader.vs" />
   </ItemGroup>
