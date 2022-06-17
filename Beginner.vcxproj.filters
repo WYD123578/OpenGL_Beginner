@@ -40,6 +40,9 @@
     <Filter Include="头文件\Light">
       <UniqueIdentifier>{7f81821b-7990-480a-8093-6b64e7edbb6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Mesh">
+      <UniqueIdentifier>{6320af66-3f7b-4086-b690-65ada346fa7f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Beginner.cpp">
@@ -136,6 +139,12 @@
     </ClInclude>
     <ClInclude Include="Light\Light.h">
       <Filter>头文件\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh\Mesh.h">
+      <Filter>头文件\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh\Model.h">
+      <Filter>头文件\Mesh</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
