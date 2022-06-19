@@ -36,8 +36,15 @@ struct SpotLight {
 };
 
 struct Material {
-	sampler2D texture;
-    sampler2D specular;
+	sampler2D texture_diffuse_1;
+	sampler2D texture_diffuse_2;
+	sampler2D texture_diffuse_3;
+	sampler2D texture_diffuse_4;
+
+    sampler2D texture_specular_1;
+    sampler2D texture_specular_2;
+    sampler2D texture_specular_3;
+    sampler2D texture_specular_4;
 
     float shininess;
 };
@@ -68,7 +75,7 @@ void main()
 	vec4 result = CalcDirectionLight(material, dirLight, normal, viewDir);
 	for(int i = 0; i < NR_POINT_LIGHTS; i++)
        result += CalcPointLight(material, pointLights[i], normal, WorldFragPos, viewDir);
-	
+
 	FragColor = result;
 }
 
@@ -78,7 +85,7 @@ vec4 CalcDirectionLight(Material mat, DirectionLight light, vec3 normal, vec3 vi
 	vec3 halfVec = normalize(lightDir + viewDir);
 	
 	// 材质采样实现的颜色
-	vec3 albedo = vec3(texture(mat.texture, TexCoords));
+	vec3 albedo = vec3(texture(mat.texture_diffuse_1, TexCoords));
 	vec3 ambient = light.ambient * light.color * albedo;
 	// 半兰伯特模型实现的 Diffuse
 	vec3 diffuse = light.diffuse * light.color * (0.5 * dot(lightDir, normal) + 0.5);
@@ -98,7 +105,7 @@ vec4 CalcPointLight(Material mat, PointLight light, vec3 fragPos, vec3 normal, v
 	float attenuation = 1.0 / (light.constant + light.linear * distance + light.quadratic * pow(distance, 2));
 	
 	// 材质采样实现的颜色
-	vec3 albedo = vec3(texture(mat.texture, TexCoords));
+	vec3 albedo = vec3(texture(mat.texture_diffuse_1, TexCoords));
 	vec3 ambient = light.ambient * light.color * albedo;
 	// 半兰伯特模型实现的 Diffuse
 	vec3 diffuse = light.diffuse * light.color * (0.5 * dot(lightDir, normal) + 0.5);
@@ -119,7 +126,7 @@ vec4 CalcSpotLight(Material mat, SpotLight light, vec3 fragPos, vec3 normal, vec
 	float intensity = clamp((theta - light.outerCutOff) / epsilon, 0.0, 1.0);   
 	
 	// 材质采样实现的颜色
-	vec3 albedo = vec3(texture(mat.texture, TexCoords));
+	vec3 albedo = vec3(texture(mat.texture_diffuse_1, TexCoords));
 	vec3 ambient = light.ambient * light.color * albedo;
 	// 半兰伯特模型实现的 Diffuse
 	vec3 diffuse = light.diffuse * light.color * (0.5 * dot(lightDir, normal) + 0.5);

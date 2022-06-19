@@ -5,14 +5,14 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <iomanip>
 
-#include <Plugin/stb_image.h>
-#include <Tool/Shader.h>
 #include <Tool/CameraControl.h>
 #include <Tool/ImGuiWindow.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
+#include "Mesh/Model.h"
 
 using namespace std;
 
@@ -86,17 +86,6 @@ void on_mouse_move_callback(GLFWwindow* win, const double x_pos_in, const double
 	const float xOffset = xPos - last_cursor_pos_x;
 	const float yOffset = last_cursor_pos_y - yPos;
 
-	/*cout << "=================================" << endl;
-	cout << showpoint;
-	cout << "lastX: " <<  setprecision(6) << lastCursorPosX << endl;
-	cout << "curX: " << setprecision(6) << xPos << endl;
-	cout << "offset: " << setprecision(6) << xOffset << endl;
-	if (xOffset < 0.0f) cout << "<-" << endl;
-	if (yOffset > 0.0f) cout << "->" << endl;
-	cout << "=================================" << endl;
-	cout << "" << endl*/
-	;
-
 	last_cursor_pos_x = xPos;
 	last_cursor_pos_y = yPos;
 
@@ -163,11 +152,11 @@ int main()
 
 	// 注册监听事件
 	glfwSetFramebufferSizeCallback(window, on_framebuffer_size_callback);
-	//glfwSetCursorPosCallback(window, on_mouse_move_callback);
-	//glfwSetScrollCallback(window, on_mouse_scroll_callback);
+	glfwSetCursorPosCallback(window, on_mouse_move_callback);
+	glfwSetScrollCallback(window, on_mouse_scroll_callback);
 
 	// 设置窗口状态
-	// glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	if (!gladLoadGL())
 	{
@@ -177,79 +166,6 @@ int main()
 	// 创建imGui窗口
 	ImGuiWindow imGuiWin(window, camera);
 
-	float vertices[] = {
-		// positions          // normals           // texture coords
-		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
-		 0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,
-		 0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
-		 0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
-		-0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
-
-		-0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 0.0f,
-		 0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 1.0f,
-		 0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 1.0f,
-		-0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 1.0f,
-		-0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 0.0f,
-
-		-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-		-0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-		-0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
-		-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-
-		 0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-		 0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
-		 0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-		 0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-		 0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-
-		-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
-		 0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,
-		 0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
-		 0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
-		-0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
-
-		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f,
-		 0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 1.0f,
-		 0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
-		-0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f,
-		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f
-	};
-
-	// 绘制时需要的操作对象
-	unsigned int VAO, VBO, lightVAO;
-
-	glGenVertexArrays(1, &VAO);
-	glGenVertexArrays(1, &lightVAO);
-	glGenBuffers(1, &VBO);
-
-	glBindVertexArray(VAO);
-	// 将以下对顶点的设置记录到VAO里面
-	{
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-		glEnableVertexAttribArray(1);
-		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-		glEnableVertexAttribArray(2);
-	}
-
-	glBindVertexArray(lightVAO);
-	{
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-	}
-
 	// 准备ShaderProgram
 	Shader objectShader("Shader/3_1_1_LightShade.vs", "Shader/3_1_1_LightShade.fs");
 	if (objectShader.ID == 0)
@@ -257,17 +173,6 @@ int main()
 		cout << "there is no shader program" << endl;
 		return -1;
 	}
-
-	Shader lightShader("Shader/2_0_0_LampShader.vs", "Shader/2_0_0_LampShader.fs");
-	if (lightShader.ID == 0)
-	{
-		cout << "there is no shader program" << endl;
-		return -1;
-	}
-
-	// 加载贴图
-	unsigned int diffuseTexture = load_texture_from_resource("container2.png");
-	unsigned int specularTexture = load_texture_from_resource("lighting_maps_specular_color.png");
 
 	// 开启深度测试
 	glEnable(GL_DEPTH_TEST);
@@ -278,8 +183,12 @@ int main()
 
 	// 添加光照
 	DirectionLight dirLight = DirectionLight();
+	dirLight.pos = glm::vec3(1, 0, 0);
 	imGuiWin.addLight(&dirLight);
 
+	// 创建模型
+	Model drawTargetModel = Model("F:\\OpenGL\\Projects\\Beginner\\Resource\\nanosuit\\nanosuit.obj");
+	
 	while (!glfwWindowShouldClose(window))
 	{
 		// ---------------------
@@ -297,8 +206,7 @@ int main()
 		processWindowKeyboardInput(deltaTime);
 
 		// 绘制物体
-		glm::mat4 model(1.0f);
-		glm::mat4 view(1.0f), projection(1.0f);
+		glm::mat4 model(1.0f), view(1.0f), projection(1.0f);
 		view = camera.viewLookAtMat4();
 		projection = glm::perspective(glm::radians(camera.fov()),
 			static_cast<float>(screenWidth) / static_cast<float>(screenHeight), 1.0f,
@@ -306,15 +214,9 @@ int main()
 
 		objectShader.use();
 		{
-			// 设置物体Shader
-
-			// 顶点Shader
 			objectShader.setMatrix4("view", glm::value_ptr(view));
 			objectShader.setMatrix4("projection", glm::value_ptr(projection));
-
-			// 片元Shader
-			objectShader.setInt("material.texture", 0);
-			objectShader.setInt("material.specular", 1);
+			
 			objectShader.setFloat("material.shininess", imGuiWin.shininess);
 
 			objectShader.setVec3("dirLight.color", dirLight.color);
@@ -330,37 +232,12 @@ int main()
 
 			objectShader.setVec3("worldCameraPos", imGuiWin._camera.pos);
 
-			// DrawCall
-			glBindVertexArray(VAO);
-			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, diffuseTexture);
-			glActiveTexture(GL_TEXTURE1);
-			glBindTexture(GL_TEXTURE_2D, specularTexture);
-			for (int i = 0; i< 10 ; i++)
-			{
-				float angle = 20.0f * i;
-				model = glm::mat4(1.0f);
-				model = glm::translate(model, glm::vec3(2.0f * i, 0.0f, 0.0f));
-				model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
-				objectShader.setMatrix4("model", glm::value_ptr(model));
-
-				glDrawArrays(GL_TRIANGLES, 0, 36);
-			}
-		}
-
-		// 绘制标识光源的物体
-		lightShader.use();
-		{
 			model = glm::mat4(1.0f);
-			model = glm::translate(model, dirLight.pos);
-			model = glm::scale(model, glm::vec3(0.2f));
+			model = glm::translate(model, glm::vec3(2.0f, 0.0f, 0.0f));
+			objectShader.setMatrix4("model", glm::value_ptr(model));
 
-			lightShader.setMatrix4("model", glm::value_ptr(model));
-			lightShader.setMatrix4("view", glm::value_ptr(view));
-			lightShader.setMatrix4("projection", glm::value_ptr(projection));
-			
-			glBindVertexArray(lightVAO);
-			glDrawArrays(GL_TRIANGLES, 0, 36);
+			// DrawCall
+			drawTargetModel.draw(objectShader);
 		}
 
 		// 放在最后绘制窗口
@@ -375,15 +252,9 @@ int main()
 	ImGui_ImplGlfw_Shutdown();
 	ImGui::DestroyContext();
 
-	glDeleteVertexArrays(1, &VAO);
-	glDeleteBuffers(1, &VBO);
-
-	// 删除图片缓存
-	glDeleteTextures(3, new unsigned int[] {diffuseTexture, specularTexture});
-
 	// 删除Shader Program
 	glDeleteProgram(objectShader.ID);
-	glDeleteProgram(lightShader.ID);
+	// glDeleteProgram(lightShader.ID);
 
 	glfwDestroyWindow(window);
 	glfwTerminate();

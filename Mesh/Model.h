@@ -28,11 +28,11 @@ public:
 		loadModel(path);
 	}
 
-	void Draw(const Shader& shader)
+	void draw(const Shader& shader) const
 	{
 		for (auto& mesh : meshes)
 		{
-			mesh.Draw(shader);
+			mesh.draw(shader);
 		}
 	}
 
@@ -48,7 +48,7 @@ private:
 			cout << "ERROR::ASSIMP::" << importer.GetErrorString() << endl;
 			return;
 		}
-		directory = path.substr(0, path.find_last_of('/'));
+		directory = path.substr(0, path.find_last_of('\\'));
 
 		processNode(scene->mRootNode, scene);
 	}
@@ -87,11 +87,6 @@ private:
 			{
 				const aiVector3D srcTexCoords = mesh->mTextureCoords[0][i];
 				vertex.TexCoords = glm::vec2(srcTexCoords.x, srcTexCoords.y);
-
-				const aiVector3D srcTangent = mesh->mTangents[i];
-				const aiVector3D srcBitangent = mesh->mBitangents[i];
-				vertex.Tangent = glm::vec3(srcTangent.x, srcTangent.y, srcTangent.z);
-				vertex.Bitangent = glm::vec3(srcBitangent.x, srcBitangent.y, srcBitangent.z);
 			}
 			else
 			{
@@ -112,8 +107,7 @@ private:
 		// 转换材质
 		aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
 		vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
-		// 插入另外一个结构的内容
-		textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
+		textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());// 插入另外一个结构的内容
 		vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
 		textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
 		vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_NORMALS, "texture_normals");
