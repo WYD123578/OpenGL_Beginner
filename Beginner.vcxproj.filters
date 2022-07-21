@@ -1,150 +1,147 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="源文件">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="头文件">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="头文件\Manager">
-      <UniqueIdentifier>{0a84c790-c6bf-4357-b0de-ac6a321872e8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Manager">
-      <UniqueIdentifier>{e8b6e608-4dcb-4c0c-9034-a862e73734af}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Plugin">
-      <UniqueIdentifier>{f022b5e6-9aa7-43df-9a1f-413664950379}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\Plugin">
-      <UniqueIdentifier>{e8da629f-5537-4c78-a6f1-d871e52244b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\Tool">
-      <UniqueIdentifier>{727a8cfe-2c27-4adb-9ebf-7e50aebb3817}</UniqueIdentifier>
-    </Filter>
     <Filter Include="resource">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="resource\Shader">
-      <UniqueIdentifier>{b4172b97-4acb-4d73-ad46-e0ca2cc848f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="imgui">
-      <UniqueIdentifier>{80312344-25b2-4583-b476-24baa9082e50}</UniqueIdentifier>
-    </Filter>
     <Filter Include="resource\Picture">
       <UniqueIdentifier>{2409cc7a-ed2d-4df2-b066-6f2be256d31b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\Light">
+    <Filter Include="Shader">
+      <UniqueIdentifier>{b4172b97-4acb-4d73-ad46-e0ca2cc848f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\Manager">
+      <UniqueIdentifier>{e8b6e608-4dcb-4c0c-9034-a862e73734af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Head">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Head\Manager">
+      <UniqueIdentifier>{0a84c790-c6bf-4357-b0de-ac6a321872e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Head\Plugin">
+      <UniqueIdentifier>{e8da629f-5537-4c78-a6f1-d871e52244b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Head\Tool">
+      <UniqueIdentifier>{727a8cfe-2c27-4adb-9ebf-7e50aebb3817}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Head\Light">
       <UniqueIdentifier>{7f81821b-7990-480a-8093-6b64e7edbb6b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\Mesh">
+    <Filter Include="Head\Mesh">
       <UniqueIdentifier>{6320af66-3f7b-4086-b690-65ada346fa7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin">
+      <UniqueIdentifier>{3b0306b1-0640-41c6-bf7e-864973371d87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin\imgui">
+      <UniqueIdentifier>{80312344-25b2-4583-b476-24baa9082e50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugin\glad">
+      <UniqueIdentifier>{8c16bc71-1d6f-442b-9c7c-cd55b8ff7cc5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Beginner.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="DisplayManager.cpp">
-      <Filter>源文件\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicBooster.cpp">
-      <Filter>源文件\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Plugin\glad.c">
-      <Filter>源文件\Plugin</Filter>
-    </ClCompile>
     <ClCompile Include="Plugin\imgui\imgui.cpp">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Plugin\imgui\imgui_demo.cpp">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Plugin\imgui\imgui_draw.cpp">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Plugin\imgui\imgui_tables.cpp">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Plugin\imgui\imgui_widgets.cpp">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Plugin\imgui\imgui_impl_glfw.cpp">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Plugin\imgui\imgui_impl_opengl3.cpp">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Beginner\Beginner.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugin\glad.c">
+      <Filter>Plugin\glad</Filter>
+    </ClCompile>
+    <ClCompile Include="Beginner\Core\GraphicBooster.cpp">
+      <Filter>Source\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Display.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="DisplayManager.h">
-      <Filter>头文件\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicBooster.h">
-      <Filter>头文件\Manager</Filter>
-    </ClInclude>
     <ClInclude Include="Plugin\stb_image.h">
-      <Filter>头文件\Plugin</Filter>
-    </ClInclude>
-    <ClInclude Include="Tool\Shader.h">
-      <Filter>头文件\Tool</Filter>
+      <Filter>Head\Plugin</Filter>
     </ClInclude>
     <ClInclude Include="Plugin\imgui\imconfig.h">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Plugin\imgui\imgui.h">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Plugin\imgui\imgui_internal.h">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Plugin\imgui\imstb_rectpack.h">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Plugin\imgui\imstb_textedit.h">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Plugin\imgui\imstb_truetype.h">
-      <Filter>imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="Tool\CameraControl.h">
-      <Filter>头文件\Tool</Filter>
-    </ClInclude>
-    <ClInclude Include="Tool\Camera.h">
-      <Filter>头文件\Tool</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Plugin\imgui\imgui_impl_glfw.h">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Plugin\imgui\imgui_impl_opengl3.h">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClInclude>
     <ClInclude Include="Plugin\imgui\imgui_impl_opengl3_loader.h">
-      <Filter>imgui</Filter>
+      <Filter>Plugin\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Tool\ImGuiWindow.h">
-      <Filter>头文件\Tool</Filter>
+    <ClInclude Include="Beginner\Core\DisplayManager.h">
+      <Filter>Head\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Light\DirectionLight.h">
-      <Filter>头文件\Light</Filter>
+    <ClInclude Include="Beginner\Core\GraphicBooster.h">
+      <Filter>Head\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Light\Light.h">
-      <Filter>头文件\Light</Filter>
+    <ClInclude Include="Beginner\Core\Display.h">
+      <Filter>Head</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh\Mesh.h">
-      <Filter>头文件\Mesh</Filter>
+    <ClInclude Include="Beginner\Mesh\Mesh.h">
+      <Filter>Head\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh\Model.h">
-      <Filter>头文件\Mesh</Filter>
+    <ClInclude Include="Beginner\Mesh\Model.h">
+      <Filter>Head\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Beginner\Tool\Camera.h">
+      <Filter>Head\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Beginner\Tool\CameraControl.h">
+      <Filter>Head\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Beginner\Tool\ImGuiWindow.h">
+      <Filter>Head\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Beginner\Tool\Shader.h">
+      <Filter>Head\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="Beginner\Light\DirectionLight.h">
+      <Filter>Head\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Beginner\Light\Light.h">
+      <Filter>Head\Light</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -166,37 +163,25 @@
     <Image Include="Resource\matrix.jpg">
       <Filter>resource\Picture</Filter>
     </Image>
+    <Image Include="Resource\blending_transparent_window.png">
+      <Filter>resource\Picture</Filter>
+    </Image>
+    <Image Include="Resource\grass.png">
+      <Filter>resource\Picture</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shader\2_0_0_LampShader.fs">
-      <Filter>resource\Shader</Filter>
+    <None Include="Beginner\Shader\Outline_Frag.glsl">
+      <Filter>Shader</Filter>
     </None>
-    <None Include="Shader\2_0_0_LampShader.vs">
-      <Filter>resource\Shader</Filter>
+    <None Include="Beginner\Shader\Outline_Vert.glsl">
+      <Filter>Shader</Filter>
     </None>
-    <None Include="Shader\ObjectShader.fs">
-      <Filter>resource\Shader</Filter>
+    <None Include="Beginner\Shader\StandardLightShader_Frag.glsl">
+      <Filter>Shader</Filter>
     </None>
-    <None Include="Shader\ObjectShader.vs">
-      <Filter>resource\Shader</Filter>
-    </None>
-    <None Include="Shader\2_1_2_PointLightShader.fs">
-      <Filter>resource\Shader</Filter>
-    </None>
-    <None Include="Shader\2_1_2_PointLightShader.vs">
-      <Filter>resource\Shader</Filter>
-    </None>
-    <None Include="Shader\2_1_3_SpotLightShader.fs">
-      <Filter>resource\Shader</Filter>
-    </None>
-    <None Include="Shader\2_1_3_SpotLightShader.vs">
-      <Filter>resource\Shader</Filter>
-    </None>
-    <None Include="Shader\3_1_1_LightShade.fs">
-      <Filter>resource\Shader</Filter>
-    </None>
-    <None Include="Shader\3_1_1_LightShade.vs">
-      <Filter>resource\Shader</Filter>
+    <None Include="Beginner\Shader\StandardLightShader_Vert.glsl">
+      <Filter>Shader</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -151,10 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Beginner.cpp" />
-    <ClCompile Include="Display.cpp" />
-    <ClCompile Include="DisplayManager.cpp" />
-    <ClCompile Include="GraphicBooster.cpp" />
+    <ClCompile Include="Beginner\Beginner.cpp" />
+    <ClCompile Include="Beginner\Core\GraphicBooster.cpp" />
     <ClCompile Include="Plugin\glad.c" />
     <ClCompile Include="Plugin\imgui\imgui.cpp" />
     <ClCompile Include="Plugin\imgui\imgui_demo.cpp" />
@@ -165,13 +163,17 @@
     <ClCompile Include="Plugin\imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Display.h" />
-    <ClInclude Include="DisplayManager.h" />
-    <ClInclude Include="GraphicBooster.h" />
-    <ClInclude Include="Light\DirectionLight.h" />
-    <ClInclude Include="Light\Light.h" />
-    <ClInclude Include="Mesh\Mesh.h" />
-    <ClInclude Include="Mesh\Model.h" />
+    <ClInclude Include="Beginner\Core\Display.h" />
+    <ClInclude Include="Beginner\Core\DisplayManager.h" />
+    <ClInclude Include="Beginner\Core\GraphicBooster.h" />
+    <ClInclude Include="Beginner\Light\DirectionLight.h" />
+    <ClInclude Include="Beginner\Light\Light.h" />
+    <ClInclude Include="Beginner\Mesh\Mesh.h" />
+    <ClInclude Include="Beginner\Mesh\Model.h" />
+    <ClInclude Include="Beginner\Tool\Camera.h" />
+    <ClInclude Include="Beginner\Tool\CameraControl.h" />
+    <ClInclude Include="Beginner\Tool\ImGuiWindow.h" />
+    <ClInclude Include="Beginner\Tool\Shader.h" />
     <ClInclude Include="Plugin\imgui\imconfig.h" />
     <ClInclude Include="Plugin\imgui\imgui.h" />
     <ClInclude Include="Plugin\imgui\imgui_impl_glfw.h" />
@@ -182,30 +184,22 @@
     <ClInclude Include="Plugin\imgui\imstb_textedit.h" />
     <ClInclude Include="Plugin\imgui\imstb_truetype.h" />
     <ClInclude Include="Plugin\stb_image.h" />
-    <ClInclude Include="Tool\Camera.h" />
-    <ClInclude Include="Tool\CameraControl.h" />
-    <ClInclude Include="Tool\ImGuiWindow.h" />
-    <ClInclude Include="Tool\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resource\awesomeface.png" />
+    <Image Include="Resource\blending_transparent_window.png" />
     <Image Include="Resource\container.jpg" />
     <Image Include="Resource\container2.png" />
     <Image Include="Resource\container2_specular.png" />
+    <Image Include="Resource\grass.png" />
     <Image Include="Resource\lighting_maps_specular_color.png" />
     <Image Include="Resource\matrix.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shader\2_1_2_PointLightShader.fs" />
-    <None Include="Shader\2_1_2_PointLightShader.vs" />
-    <None Include="Shader\2_0_0_LampShader.fs" />
-    <None Include="Shader\2_0_0_LampShader.vs" />
-    <None Include="Shader\2_1_3_SpotLightShader.fs" />
-    <None Include="Shader\2_1_3_SpotLightShader.vs" />
-    <None Include="Shader\3_1_1_LightShade.fs" />
-    <None Include="Shader\3_1_1_LightShade.vs" />
-    <None Include="Shader\ObjectShader.fs" />
-    <None Include="Shader\ObjectShader.vs" />
+    <None Include="Beginner\Shader\Outline_Frag.glsl" />
+    <None Include="Beginner\Shader\Outline_Vert.glsl" />
+    <None Include="Beginner\Shader\StandardLightShader_Frag.glsl" />
+    <None Include="Beginner\Shader\StandardLightShader_Vert.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
