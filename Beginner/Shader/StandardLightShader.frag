@@ -97,7 +97,7 @@ vec4 CalcDirectionLight(Material mat, DirectionLight light, vec3 normal, vec3 vi
 	vec3 specular = light.specular * light.color * pow(max(dot(normal, halfVec), 0.0), material.shininess);
 
 	vec4 col = vec4(ambient + diffuse + specular, 1.0f);
-	return col;
+	return vec4(albedo,1);
 }
 
 vec4 CalcPointLight(Material mat, PointLight light, vec3 fragPos, vec3 normal, vec3 viewDir)

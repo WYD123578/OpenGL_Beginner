@@ -4,15 +4,18 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <iomanip>
+#include <map>
 
 #include "Tool/CameraControl.h"
 #include "Tool/ImGuiWindow.h"
-#include "Mesh/Model.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Mesh/basic_mesh.h"
+#include "Mesh/Mesh.h"
+#include "Plugin/stb_image.h"
 
 using namespace std;
 
@@ -52,10 +55,20 @@ unsigned int load_texture_from_resource(const string& pic_name)
 		glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
 
 		glGenerateMipmap(GL_TEXTURE_2D);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		if (nrChannels == 4)
+		{
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		}
+		else
+		{
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		}
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 	else
 	{
@@ -170,15 +183,15 @@ int main()
 	ImGuiWindow imGuiWin(window, camera);
 
 	// 准备ShaderProgram
-	Shader objectShader("Shader/StandardLightShader.vs", "Shader/StandardLightShader.fs");
+	Shader objectShader("Beginner/Shader/StandardLightShader.vert", "Beginner/Shader/StandardLightShader.frag");
 	if (objectShader.ID == 0)
 	{
 		cout << "there is no shader program" << endl;
 		return -1;
 	}
-
-	Shader outlineShader("Shader/Outline.vs", "Shader/Outline.fs");
-	if (outlineShader.ID == 0)
+	
+	Shader grassShader("Beginner/Shader/Grass.vert", "Beginner/Shader/Grass.frag");
+	if (grassShader.ID == 0)
 	{
 		cout << "there is no shader program" << endl;
 		return -1;
@@ -194,23 +207,12 @@ int main()
 	imGuiWin.addLight(&dirLight);
 
 	// 创建模型
-	Model drawTargetModel = Model("F:\\OpenGL\\Projects\\Beginner\\Resource\\nanosuit\\nanosuit.obj");
+	// Model drawTargetModel = Model("F:\\OpenGL\\Projects\\Beginner\\Resource\\nanosuit\\nanosuit.obj");
 
-	vector<Vertex> plane_vertices = vector<Vertex>();
-	plane_vertices.push_back(Vertex{ glm::vec3(0.5, 0.5, 0), glm::vec3(0,0,1), glm::vec2(1,1) });
-	plane_vertices.push_back(Vertex{ glm::vec3(0.5, -0.5, 0), glm::vec3(0,0,1), glm::vec2(1,0) });
-	plane_vertices.push_back(Vertex{ glm::vec3(-0.5, 0.5, 0), glm::vec3(0,0,1), glm::vec2(0,1) });
-	plane_vertices.push_back(Vertex{ glm::vec3(-0.5, -0.5, 0), glm::vec3(0,0,1), glm::vec2(0,0) });
+	Beginner::Mesh plane = { Beginner::SQUARE_VERTEX, Beginner::SQUARE_INDICES };
+	Beginner::Mesh floor = { Beginner::PLANE_VERTEX, Beginner::PLANE_INDICES };
 
-	vector<unsigned int> plane_indices = vector<unsigned int>();
-	plane_indices.push_back(0);
-	plane_indices.push_back(1);
-	plane_indices.push_back(2);
-	plane_indices.push_back(1);
-	plane_indices.push_back(2);
-	plane_indices.push_back(3);
-
-	Mesh plane = Mesh(plane_vertices, plane_indices, vector<Texture>());
+	int grassTexture = load_texture_from_resource("blending_transparent_window.png");
 
 	// 开启深度测试
 	glEnable(GL_DEPTH_TEST);
@@ -218,6 +220,13 @@ int main()
 
 	glEnable(GL_STENCIL_TEST);
 	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	// glEnable(GL_CULL_FACE);
+	// glCullFace(GL_FRONT);
+	// glFrontFace(GL_CCW);
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -242,51 +251,60 @@ int main()
 		                              static_cast<float>(screenWidth) / static_cast<float>(screenHeight), camera.near,
 		                              camera.far);
 
-		glStencilFunc(GL_ALWAYS, 1, 0xFF);
-		glStencilMask(0xFF);
 		objectShader.use();
 		{
 			objectShader.setMatrix4("view", glm::value_ptr(view));
 			objectShader.setMatrix4("projection", glm::value_ptr(projection));
 
 			objectShader.setFloat("material.shininess", imGuiWin.shininess);
-
+			
 			objectShader.setVec3("dirLight.color", dirLight.color);
 			objectShader.setVec3("dirLight.position", dirLight.pos);
-
+			
 			objectShader.setVec3("dirLight.ambient", dirLight.ambient);
 			objectShader.setVec3("dirLight.diffuse", dirLight.diffuse);
 			objectShader.setVec3("dirLight.specular", dirLight.specular);
-
+			
 			objectShader.setVec3("dirLight.direction", dirLight.pos);
 			objectShader.setFloat("light.cutOff", glm::cos(glm::radians(12.0f)));
 			objectShader.setFloat("light.outerCutOff", glm::cos(glm::radians(24.0f)));
-
+			
 			objectShader.setVec3("worldCameraPos", imGuiWin._camera.pos);
 
 			model = glm::mat4(1.0f);
-			model = glm::translate(model, glm::vec3(50.0f, -10.0f, 0.0f));
 			objectShader.setMatrix4("model", glm::value_ptr(model));
 
 			// DrawCall
-			drawTargetModel.draw(objectShader);
+			floor.draw(objectShader);
 		}
 
-		glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
-		glDisable(GL_DEPTH_TEST);
-		glStencilMask(0x00);
-		outlineShader.use();
+		grassShader.use();
 		{
-			outlineShader.setMatrix4("view", glm::value_ptr(view));
-			outlineShader.setMatrix4("projection", glm::value_ptr(projection));
-			outlineShader.setMatrix4("model", glm::value_ptr(model));
-
-			drawTargetModel.draw(outlineShader);
+			grassShader.setMatrix4("view", glm::value_ptr(view));
+			grassShader.setMatrix4("projection", glm::value_ptr(projection));
+		
+			glBindTexture(GL_TEXTURE_2D, grassTexture);
 		}
-		glStencilMask(0xFF);
-		glEnable(GL_DEPTH_TEST);
+		
+		map<float, glm::vec3> sorted;
+		for (char i = 0; i < 10; i++)
+		{
+			glm::vec3 planePos = glm::vec3(0, 0, i * 0.6);
+			float distance = glm::length(camera.pos - planePos);
+			sorted[distance] = planePos;
+		}
+		
+		for (auto it = sorted.rbegin(); it != sorted.rend(); ++it)
+		{
+			model = glm::mat4(1);
+			model = glm::translate(model, it->second);
+			grassShader.setMatrix4("model", glm::value_ptr(model));
+			plane.draw(grassShader);
+		}
 
-
+		// 取消绑定对其他Pass造成的影响
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, 0);
 
 		// 放在最后绘制窗口
 		ImGuiWindow::render();
@@ -302,7 +320,7 @@ int main()
 
 	// 删除Shader Program
 	glDeleteProgram(objectShader.ID);
-	glDeleteProgram(outlineShader.ID);
+	glDeleteProgram(grassShader.ID);
 
 	glfwDestroyWindow(window);
 	glfwTerminate();

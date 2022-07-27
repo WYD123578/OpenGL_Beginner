@@ -2,12 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LocalDebuggerAttach>false</LocalDebuggerAttach>
-    <LocalDebuggerEnvironment>PATH=F:\OpenGL\assimp_build\tools\assimp_cmd\Debug\assimp-vc140-mt.dll</LocalDebuggerEnvironment>
+    <LocalDebuggerEnvironment>PATH=F:\OpenGL\assimp_build\tools\assimp_cmd\Debug</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LocalDebuggerAttach>false</LocalDebuggerAttach>
-    <LocalDebuggerEnvironment>PATH=F:\OpenGL\assimp_build\tools\assimp_cmd\Debug\assimp-vc140-mt.dll</LocalDebuggerEnvironment>
+    <LocalDebuggerEnvironment>PATH=F:\OpenGL\assimp_build\tools\assimp_cmd\Debug</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>
