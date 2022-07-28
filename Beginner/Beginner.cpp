@@ -5,6 +5,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <iomanip>
 #include <map>
+#include <chrono>
 
 #include "Tool/CameraControl.h"
 #include "Tool/ImGuiWindow.h"
@@ -139,6 +140,23 @@ void error_callback(int error, const char* msg)
 	std::cerr << s << std::endl;
 }
 
+
+std::chrono::steady_clock::time_point m_lastTimePoint{std::chrono::steady_clock::now()};
+
+float getDeltaTime()
+{
+	float deltaTime = 0;
+	{
+		using namespace std::chrono;
+
+		steady_clock::time_point tickTimePoint = steady_clock::now();
+		duration<float> timeSpan = duration_cast<duration<float>>(tickTimePoint - m_lastTimePoint);
+		deltaTime = timeSpan.count();
+		m_lastTimePoint = tickTimePoint;
+	}
+	return deltaTime;
+}
+
 Light* lightsInScene = new Light[8]();
 
 int main()
@@ -189,18 +207,14 @@ int main()
 		cout << "there is no shader program" << endl;
 		return -1;
 	}
-	
+
 	Shader grassShader("Beginner/Shader/Grass.vert", "Beginner/Shader/Grass.frag");
 	if (grassShader.ID == 0)
 	{
 		cout << "there is no shader program" << endl;
 		return -1;
 	}
-
-	// 渲染时间
-	float deltaTime = 0.0f;
-	float lastFrame = 0.0f;
-
+	
 	// 添加光照
 	DirectionLight dirLight = DirectionLight();
 	dirLight.pos = glm::vec3(1, 0, 0);
@@ -208,25 +222,33 @@ int main()
 
 	// 创建模型
 	// Model drawTargetModel = Model("F:\\OpenGL\\Projects\\Beginner\\Resource\\nanosuit\\nanosuit.obj");
-
-	Beginner::Mesh plane = { Beginner::SQUARE_VERTEX, Beginner::SQUARE_INDICES };
-	Beginner::Mesh floor = { Beginner::PLANE_VERTEX, Beginner::PLANE_INDICES };
+	Beginner::Mesh plane = {Beginner::SQUARE_VERTEX, Beginner::SQUARE_INDICES};
+	Beginner::Mesh floor = {Beginner::PLANE_VERTEX, Beginner::PLANE_INDICES};
 
 	int grassTexture = load_texture_from_resource("blending_transparent_window.png");
+
+	// 帧缓冲
+	unsigned int fbo;
+	glGenFramebuffers(1, &fbo);
 
 	// 开启深度测试
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
 
+	// 开启模板测试
 	glEnable(GL_STENCIL_TEST);
 	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 
+	// 开启混合
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	// glEnable(GL_CULL_FACE);
-	// glCullFace(GL_FRONT);
-	// glFrontFace(GL_CCW);
+	// 开启正面剔除
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_FRONT);
+	glFrontFace(GL_CCW);
+
+	// glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -238,8 +260,7 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
 		const auto currentFrame = static_cast<float>(glfwGetTime());
-		deltaTime = currentFrame - lastFrame;
-		lastFrame = currentFrame;
+		float deltaTime = getDeltaTime();
 
 		// 更新Camera
 		processWindowKeyboardInput(deltaTime);
@@ -257,18 +278,18 @@ int main()
 			objectShader.setMatrix4("projection", glm::value_ptr(projection));
 
 			objectShader.setFloat("material.shininess", imGuiWin.shininess);
-			
+
 			objectShader.setVec3("dirLight.color", dirLight.color);
 			objectShader.setVec3("dirLight.position", dirLight.pos);
-			
+
 			objectShader.setVec3("dirLight.ambient", dirLight.ambient);
 			objectShader.setVec3("dirLight.diffuse", dirLight.diffuse);
 			objectShader.setVec3("dirLight.specular", dirLight.specular);
-			
+
 			objectShader.setVec3("dirLight.direction", dirLight.pos);
 			objectShader.setFloat("light.cutOff", glm::cos(glm::radians(12.0f)));
 			objectShader.setFloat("light.outerCutOff", glm::cos(glm::radians(24.0f)));
-			
+
 			objectShader.setVec3("worldCameraPos", imGuiWin._camera.pos);
 
 			model = glm::mat4(1.0f);
@@ -282,10 +303,10 @@ int main()
 		{
 			grassShader.setMatrix4("view", glm::value_ptr(view));
 			grassShader.setMatrix4("projection", glm::value_ptr(projection));
-		
+
 			glBindTexture(GL_TEXTURE_2D, grassTexture);
 		}
-		
+
 		map<float, glm::vec3> sorted;
 		for (char i = 0; i < 10; i++)
 		{
@@ -293,7 +314,7 @@ int main()
 			float distance = glm::length(camera.pos - planePos);
 			sorted[distance] = planePos;
 		}
-		
+
 		for (auto it = sorted.rbegin(); it != sorted.rend(); ++it)
 		{
 			model = glm::mat4(1);
