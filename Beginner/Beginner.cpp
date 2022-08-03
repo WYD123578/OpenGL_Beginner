@@ -202,30 +202,16 @@ int main()
 	ImGuiWindow imGuiWin(window, camera);
 
 	// 准备ShaderProgram
-	Shader objectShader("Beginner/Shader/StandardLightShader.vert", "Beginner/Shader/StandardLightShader.frag");
-	if (objectShader.ID == 0)
+	vector<Shader*> shaderArray
 	{
-		cout << "there is no shader program" << endl;
-		return -1;
-	}
-
-	Shader grassShader("Beginner/Shader/Grass.vert", "Beginner/Shader/Grass.frag");
-	if (grassShader.ID == 0)
-	{
-		cout << "there is no shader program" << endl;
-		return -1;
-	}
-
-	vector<Shader> shaderArray
-	{
-		Shader("Beginner/Shader/StandardLightShader.vert", "Beginner/Shader/StandardLightShader.frag"),
-		Shader("Beginner/Shader/Grass.vert", "Beginner/Shader/Grass.frag"),
-		Shader("Beginner/Shader/GlScreen.vert", "Beginner/Shader/GlScreen.frag"),
+		new Shader("Beginner/Shader/StandardLightShader.vert", "Beginner/Shader/StandardLightShader.frag"),
+		new Shader("Beginner/Shader/Grass.vert", "Beginner/Shader/Grass.frag"),
+		new Shader("Beginner/Shader/GlScreen.vert", "Beginner/Shader/GlScreen.frag"),
 	};
 
-	for (Shader s : shaderArray)
+	for (const Shader* s : shaderArray)
 	{
-		if (s.ID == 0)
+		if (s->ID == 0)
 		{
 			cout << "there is no shader program" << endl;
 			return -1;
@@ -244,7 +230,7 @@ int main()
 
 	int grassTexture = load_texture_from_resource("blending_transparent_window.png");
 
-	Beginner::RenderPass globalPass(Beginner::RenderPassParam{ true, true, true, true, true });
+	Beginner::RenderPass globalPass(Beginner::RenderPassParam{true, true, true, true, false});
 	globalPass.setRenderState();
 
 	while (!glfwWindowShouldClose(window))
@@ -265,46 +251,47 @@ int main()
 		// 绘制物体
 		glm::mat4 model(1.0f);
 
-
-		Beginner::RenderPass::setShaderMVPParam(&objectShader, camera, screenWidth, screenHeight);
-		Beginner::RenderPass::setShaderMVPParam(&grassShader, camera, screenWidth, screenHeight);
-		Beginner::RenderPass::setShaderLightParam(&objectShader, &dirLight);
-
-		objectShader.use();
+		for (const Shader* s : shaderArray)
 		{
-			objectShader.setFloat("material.shininess", imGuiWin.shininess);
-			
-			model = glm::mat4(1.0f);
-			objectShader.setMatrix4("model", glm::value_ptr(model));
-
-			// DrawCall
-			floor.draw(objectShader);
+			Beginner::RenderPass::setShaderMVPParam(s, camera, screenWidth, screenHeight);
+			Beginner::RenderPass::setShaderLightParam(s, &dirLight);
 		}
 
-		grassShader.use();
+		shaderArray[0]->use();
+		{
+			shaderArray[0]->setFloat("material.shininess", imGuiWin.shininess);
+
+			model = glm::mat4(1.0f);
+			shaderArray[0]->setMatrix4("model", glm::value_ptr(model));
+			
+			// DrawCall
+			floor.draw(*shaderArray[0]);
+		}
+
+		shaderArray[1]->use();
 		{
 			glBindTexture(GL_TEXTURE_2D, grassTexture);
-		}
 
-		map<float, glm::vec3> sorted;
-		for (char i = 0; i < 10; i++)
-		{
-			glm::vec3 planePos = glm::vec3(0, 0, i * 0.6);
-			float distance = glm::length(camera.pos - planePos);
-			sorted[distance] = planePos;
-		}
+			map<float, glm::vec3> sorted;
+			for (char i = 0; i < 10; i++)
+			{
+				glm::vec3 planePos = glm::vec3(0, 0, i * 0.6);
+				float distance = glm::length(camera.pos - planePos);
+				sorted[distance] = planePos;
+			}
 
-		for (auto it = sorted.rbegin(); it != sorted.rend(); ++it)
-		{
-			model = glm::mat4(1);
-			model = glm::translate(model, it->second);
-			grassShader.setMatrix4("model", glm::value_ptr(model));
-			plane.draw(grassShader);
-		}
+			for (auto it = sorted.rbegin(); it != sorted.rend(); ++it)
+			{
+				model = glm::mat4(1);
+				model = glm::translate(model, it->second);
+				shaderArray[1]->setMatrix4("model", glm::value_ptr(model));
+				plane.draw(*shaderArray[1]);
+			}
 
-		// 取消绑定对其他Pass造成的影响
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, 0);
+			// 取消绑定对其他Pass造成的影响
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
 
 		// 放在最后绘制窗口
 		ImGuiWindow::render();
@@ -319,8 +306,8 @@ int main()
 	ImGui::DestroyContext();
 
 	// 删除Shader Program
-	glDeleteProgram(objectShader.ID);
-	glDeleteProgram(grassShader.ID);
+	// glDeleteProgram(objectShader.ID);
+	// glDeleteProgram(grassShader.ID);
 
 	glfwDestroyWindow(window);
 	glfwTerminate();

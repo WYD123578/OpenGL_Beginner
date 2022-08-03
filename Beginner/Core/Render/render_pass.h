@@ -92,6 +92,8 @@ namespace Beginner
 			if (shader		== nullptr) return;
 			if (dirLight	== nullptr) return;
 
+			shader->use();
+
 			shader->setVec3("dirLight.color",		dirLight->color);
 			shader->setVec3("dirLight.position",		dirLight->pos);
 			shader->setVec3("dirLight.ambient",		dirLight->ambient);
