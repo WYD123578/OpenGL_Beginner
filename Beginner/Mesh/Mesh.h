@@ -137,50 +137,5 @@ namespace Beginner
 			// 取消绑定，避免误操作
 			glBindVertexArray(0);
 		}
-
-		void setupMesh(std::vector<float> vert, int posCount, bool hasNormal, bool hasCoords)
-		{
-			glGenVertexArrays(1, &VAO);
-			glGenBuffers(1, &VBO);
-			glGenBuffers(1, &EBO);
-
-			glBindVertexArray(VAO);
-
-			glBindBuffer(GL_ARRAY_BUFFER, VBO);
-			glBufferData(GL_ARRAY_BUFFER, vert.size() * sizeof(float), &vert[0], GL_STATIC_DRAW);
-
-			int basicPointCount = posCount;
-			if (hasNormal) basicPointCount += posCount;
-			if (hasCoords) basicPointCount += 2;
-
-			int offset = 0, index = 0;
-			// 顶点位置
-			glEnableVertexAttribArray(index);
-			glVertexAttribPointer(index, posCount, GL_FLOAT, GL_FALSE, basicPointCount * sizeof(float),
-			                      reinterpret_cast<void*>(offset));
-			index += 1;
-			offset += posCount;
-
-			if (hasNormal)
-			{
-				// 法线位置
-				glEnableVertexAttribArray(index);
-				glVertexAttribPointer(index, posCount, GL_FLOAT, GL_FALSE, basicPointCount * sizeof(float),
-				                      reinterpret_cast<void*>(sizeof(float) * offset));
-				index += 1;
-				offset += posCount;
-			}
-
-			if (hasCoords)
-			{
-				// UV坐标位置
-				glEnableVertexAttribArray(index);
-				glVertexAttribPointer(index, 2, GL_FLOAT, GL_FALSE, basicPointCount * sizeof(float),
-				                      reinterpret_cast<void*>(sizeof(float) * offset));
-			}
-
-			// 取消绑定，避免误操作
-			glBindVertexArray(0);
-		}
 	};
 }

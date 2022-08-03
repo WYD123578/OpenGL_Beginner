@@ -230,7 +230,7 @@ int main()
 	Beginner::Mesh quad = { Beginner::QUAD_VERTICES_ARC, 2, false,true };
 	Beginner::Mesh cube = { Beginner::CUBE_VERTEX, 3, false, true };
 
-	int grassTexture = load_texture_from_resource("blending_transparent_window.png");
+	int grassTexture = load_texture_from_resource("container.jpg");
 
 	Beginner::RenderPass globalPass(Beginner::RenderPassParam{true, true, false, false, false});
 	globalPass.setRenderState();
@@ -320,7 +320,6 @@ int main()
 				model = glm::mat4(1);
 				model = glm::translate(model, it->second);
 				shaderArray[1]->setMatrix4("model", glm::value_ptr(model));
-				// plane.draw(*shaderArray[1]);
 				cube.draw(*shaderArray[1]);
 			}
 
