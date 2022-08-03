@@ -22,6 +22,61 @@ namespace Beginner
 		std::vector<Vertex> vertices;
 		std::vector<unsigned int> indices;
 
+		Mesh(std::vector<float> point, int posCount, bool hasNormal, bool hasCoords)
+		{
+			vertices = std::vector<Vertex>();
+			int basicPointCount = posCount;
+			if (hasNormal) basicPointCount += posCount;
+			if (hasCoords) basicPointCount += 2;
+
+			if (point.size() % basicPointCount != 0)
+			{
+				std::cout << "错误的节点数量，不够组成顶点\n";
+				return;
+			}
+
+			for (unsigned long long i = 0; i < point.size(); i += basicPointCount)
+			{
+				auto offsset = i;
+				glm::vec3 normal = glm::vec3();
+				glm::vec2 coords = glm::vec3();
+				glm::vec3 pos = glm::vec3();
+
+				if (posCount == 2)
+				{
+					pos = glm::vec3(point[offsset], point[offsset + 1], 0);
+				}
+				else
+				{
+					pos = glm::vec3(point[offsset], point[offsset + 1], point[offsset + 2]);
+				}
+				offsset += posCount;
+
+				if (hasNormal)
+				{
+					if (posCount == 2)
+					{
+						normal = glm::vec3(point[offsset], point[offsset + 1], 0);
+					}
+					else
+					{
+						normal = glm::vec3(point[offsset], point[offsset + 1], point[offsset + 2]);
+					}
+					offsset += posCount;
+				}
+
+				if (hasCoords)
+				{
+					coords = glm::vec2(point[offsset], point[offsset + 1]);
+					offsset += 2;
+				}
+
+				vertices.push_back(Vertex{pos, normal, coords});
+			}
+
+			setupMesh();
+		}
+
 		Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices)
 		{
 			this->vertices = std::move(vertices);
@@ -35,7 +90,14 @@ namespace Beginner
 			shader.use();
 			// 绘制网格
 			glBindVertexArray(VAO);
-			glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(indices.size()), GL_UNSIGNED_INT, 0);
+			if (indices.empty())
+			{
+				glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+			}
+			else
+			{
+				glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(indices.size()), GL_UNSIGNED_INT, 0);
+			}
 			glBindVertexArray(0);
 		}
 
@@ -53,8 +115,12 @@ namespace Beginner
 			glBindBuffer(GL_ARRAY_BUFFER, VBO);
 			glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
 
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-			glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
+			if (!indices.empty())
+			{
+				glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+				glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0],
+				             GL_STATIC_DRAW);
+			}
 
 			// 顶点位置
 			glEnableVertexAttribArray(0);
@@ -67,6 +133,51 @@ namespace Beginner
 			// UV坐标位置
 			glEnableVertexAttribArray(2);
 			glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<void*>(sizeof(float) * 6));
+
+			// 取消绑定，避免误操作
+			glBindVertexArray(0);
+		}
+
+		void setupMesh(std::vector<float> vert, int posCount, bool hasNormal, bool hasCoords)
+		{
+			glGenVertexArrays(1, &VAO);
+			glGenBuffers(1, &VBO);
+			glGenBuffers(1, &EBO);
+
+			glBindVertexArray(VAO);
+
+			glBindBuffer(GL_ARRAY_BUFFER, VBO);
+			glBufferData(GL_ARRAY_BUFFER, vert.size() * sizeof(float), &vert[0], GL_STATIC_DRAW);
+
+			int basicPointCount = posCount;
+			if (hasNormal) basicPointCount += posCount;
+			if (hasCoords) basicPointCount += 2;
+
+			int offset = 0, index = 0;
+			// 顶点位置
+			glEnableVertexAttribArray(index);
+			glVertexAttribPointer(index, posCount, GL_FLOAT, GL_FALSE, basicPointCount * sizeof(float),
+			                      reinterpret_cast<void*>(offset));
+			index += 1;
+			offset += posCount;
+
+			if (hasNormal)
+			{
+				// 法线位置
+				glEnableVertexAttribArray(index);
+				glVertexAttribPointer(index, posCount, GL_FLOAT, GL_FALSE, basicPointCount * sizeof(float),
+				                      reinterpret_cast<void*>(sizeof(float) * offset));
+				index += 1;
+				offset += posCount;
+			}
+
+			if (hasCoords)
+			{
+				// UV坐标位置
+				glEnableVertexAttribArray(index);
+				glVertexAttribPointer(index, 2, GL_FLOAT, GL_FALSE, basicPointCount * sizeof(float),
+				                      reinterpret_cast<void*>(sizeof(float) * offset));
+			}
 
 			// 取消绑定，避免误操作
 			glBindVertexArray(0);

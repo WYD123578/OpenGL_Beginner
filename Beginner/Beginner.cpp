@@ -23,7 +23,7 @@ using namespace std;
 
 GLFWwindow* window;
 CameraControl camera(glm::vec3(-2.5f, 2.8f, 5.0f), glm::vec3(0.0f, 1.0f, 0.0f), -25.0f, 35.0f);
-float screenWidth, screenHeight;
+int screenWidth, screenHeight;
 
 void on_framebuffer_size_callback(GLFWwindow* _window, int _width, int _height)
 {
@@ -227,26 +227,61 @@ int main()
 	// Model drawTargetModel = Model("F:\\OpenGL\\Projects\\Beginner\\Resource\\nanosuit\\nanosuit.obj");
 	Beginner::Mesh plane = {Beginner::SQUARE_VERTEX, Beginner::SQUARE_INDICES};
 	Beginner::Mesh floor = {Beginner::PLANE_VERTEX, Beginner::PLANE_INDICES};
+	Beginner::Mesh quad = { Beginner::QUAD_VERTICES_ARC, 2, false,true };
+	Beginner::Mesh cube = { Beginner::CUBE_VERTEX, 3, false, true };
 
 	int grassTexture = load_texture_from_resource("blending_transparent_window.png");
 
-	Beginner::RenderPass globalPass(Beginner::RenderPassParam{true, true, true, true, false});
+	Beginner::RenderPass globalPass(Beginner::RenderPassParam{true, true, false, false, false});
 	globalPass.setRenderState();
+
+	// 帧缓冲
+	unsigned int fbo;
+	glGenFramebuffers(1, &fbo);
+	glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+	
+	// 纹理附件
+	unsigned int textureColorbuffer;
+	glGenTextures(1, &textureColorbuffer);
+	glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, screenWidth, screenHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureColorbuffer, 0);
+	glBindTexture(GL_TEXTURE_2D, 0);
+	
+	// 渲染缓冲附件
+	unsigned int rbo;
+	glGenRenderbuffers(1, &rbo);
+	glBindRenderbuffer(GL_RENDERBUFFER, rbo);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, screenWidth, screenHeight);
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo);
+	glBindRenderbuffer(GL_RENDERBUFFER, 0);
+	
+	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+	{
+		std::cout << "[Error Frame Buffer] Frame Buffer is not complete\n";
+	}
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+	// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	while (!glfwWindowShouldClose(window))
 	{
 		// ---------------------
 		imGuiWin.updateWindow();
-
-		// 清除屏幕
-		glClearColor(0, 0, 0, 1);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-
 		const auto currentFrame = static_cast<float>(glfwGetTime());
 		float deltaTime = getDeltaTime();
 
 		// 更新Camera
 		processWindowKeyboardInput(deltaTime);
+
+		glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+		glEnable(GL_DEPTH_TEST);
+
+		// 清除屏幕
+		glClearColor(0, 0, 0, 1);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
 		// 绘制物体
 		glm::mat4 model(1.0f);
@@ -273,7 +308,7 @@ int main()
 			glBindTexture(GL_TEXTURE_2D, grassTexture);
 
 			map<float, glm::vec3> sorted;
-			for (char i = 0; i < 10; i++)
+			for (char i = 0; i < 1; i++)
 			{
 				glm::vec3 planePos = glm::vec3(0, 0, i * 0.6);
 				float distance = glm::length(camera.pos - planePos);
@@ -285,11 +320,24 @@ int main()
 				model = glm::mat4(1);
 				model = glm::translate(model, it->second);
 				shaderArray[1]->setMatrix4("model", glm::value_ptr(model));
-				plane.draw(*shaderArray[1]);
+				// plane.draw(*shaderArray[1]);
+				cube.draw(*shaderArray[1]);
 			}
 
 			// 取消绑定对其他Pass造成的影响
 			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glDisable(GL_DEPTH_TEST);
+		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		shaderArray[2]->use();
+		{
+			glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
+			quad.draw(*shaderArray[2]);
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
@@ -306,8 +354,10 @@ int main()
 	ImGui::DestroyContext();
 
 	// 删除Shader Program
-	// glDeleteProgram(objectShader.ID);
-	// glDeleteProgram(grassShader.ID);
+	for (Shader* s : shaderArray)
+	{
+		glDeleteProgram(s->ID);
+	}
 
 	glfwDestroyWindow(window);
 	glfwTerminate();
