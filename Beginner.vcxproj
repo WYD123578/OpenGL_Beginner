@@ -171,6 +171,7 @@
     <ClInclude Include="Beginner\Core\Display.h" />
     <ClInclude Include="Beginner\Core\DisplayManager.h" />
     <ClInclude Include="Beginner\Core\GraphicBooster.h" />
+    <ClInclude Include="Beginner\Core\Object\object.h" />
     <ClInclude Include="Beginner\Core\Render\render_pass.h" />
     <ClInclude Include="Beginner\Light\DirectionLight.h" />
     <ClInclude Include="Beginner\Light\Light.h" />
@@ -204,6 +205,8 @@
     <Image Include="Resource\matrix.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Beginner\Shader\GlScreen.frag" />
+    <None Include="Beginner\Shader\GlScreen.vert" />
     <None Include="Beginner\Shader\Grass.frag" />
     <None Include="Beginner\Shader\Grass.vert" />
     <None Include="Beginner\Shader\Outline.frag">

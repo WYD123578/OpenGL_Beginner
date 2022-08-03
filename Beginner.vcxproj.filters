@@ -49,6 +49,15 @@
     <Filter Include="Source\Mesh">
       <UniqueIdentifier>{cd5b64a8-3ccc-45c3-b3ec-dbb06d6afe33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Head\Core">
+      <UniqueIdentifier>{9a84ad21-3bc0-4b71-805c-b5add76aed37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Head\Core\Render">
+      <UniqueIdentifier>{dfe63211-f104-4ef3-a323-2ff7d64c56c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Head\Core\Object">
+      <UniqueIdentifier>{6b6b554e-6e78-4035-9755-69d051f982df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Plugin\imgui\imgui.cpp">
@@ -149,14 +158,17 @@
     <ClInclude Include="Beginner\Light\Light.h">
       <Filter>Head\Light</Filter>
     </ClInclude>
-    <ClInclude Include="Beginner\Core\Render\render_pass.h">
-      <Filter>Source</Filter>
-    </ClInclude>
     <ClInclude Include="Beginner\Mesh\mesh_renderer.h">
       <Filter>Head\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="Beginner\Mesh\material.h">
       <Filter>Head\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Beginner\Core\Render\render_pass.h">
+      <Filter>Head\Core\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Beginner\Core\Object\object.h">
+      <Filter>Head\Core\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +214,12 @@
       <Filter>Shader</Filter>
     </None>
     <None Include="Beginner\Shader\Grass.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Beginner\Shader\GlScreen.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Beginner\Shader\GlScreen.frag">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>

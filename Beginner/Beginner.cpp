@@ -14,6 +14,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Core/Render/render_pass.h"
 #include "Mesh/basic_mesh.h"
 #include "Mesh/Mesh.h"
 #include "Plugin/stb_image.h"
@@ -22,7 +23,7 @@ using namespace std;
 
 GLFWwindow* window;
 CameraControl camera(glm::vec3(-2.5f, 2.8f, 5.0f), glm::vec3(0.0f, 1.0f, 0.0f), -25.0f, 35.0f);
-int screenWidth, screenHeight;
+float screenWidth, screenHeight;
 
 void on_framebuffer_size_callback(GLFWwindow* _window, int _width, int _height)
 {
@@ -214,7 +215,23 @@ int main()
 		cout << "there is no shader program" << endl;
 		return -1;
 	}
-	
+
+	vector<Shader> shaderArray
+	{
+		Shader("Beginner/Shader/StandardLightShader.vert", "Beginner/Shader/StandardLightShader.frag"),
+		Shader("Beginner/Shader/Grass.vert", "Beginner/Shader/Grass.frag"),
+		Shader("Beginner/Shader/GlScreen.vert", "Beginner/Shader/GlScreen.frag"),
+	};
+
+	for (Shader s : shaderArray)
+	{
+		if (s.ID == 0)
+		{
+			cout << "there is no shader program" << endl;
+			return -1;
+		}
+	}
+
 	// 添加光照
 	DirectionLight dirLight = DirectionLight();
 	dirLight.pos = glm::vec3(1, 0, 0);
@@ -227,28 +244,8 @@ int main()
 
 	int grassTexture = load_texture_from_resource("blending_transparent_window.png");
 
-	// 帧缓冲
-	unsigned int fbo;
-	glGenFramebuffers(1, &fbo);
-
-	// 开启深度测试
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LEQUAL);
-
-	// 开启模板测试
-	glEnable(GL_STENCIL_TEST);
-	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
-
-	// 开启混合
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	// 开启正面剔除
-	glEnable(GL_CULL_FACE);
-	glCullFace(GL_FRONT);
-	glFrontFace(GL_CCW);
-
-	// glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+	Beginner::RenderPass globalPass(Beginner::RenderPassParam{ true, true, true, true, true });
+	globalPass.setRenderState();
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -266,32 +263,17 @@ int main()
 		processWindowKeyboardInput(deltaTime);
 
 		// 绘制物体
-		glm::mat4 model(1.0f), view(1.0f), projection(1.0f);
-		view = camera.viewLookAtMat4();
-		projection = glm::perspective(glm::radians(camera.fov()),
-		                              static_cast<float>(screenWidth) / static_cast<float>(screenHeight), camera.near,
-		                              camera.far);
+		glm::mat4 model(1.0f);
+
+
+		Beginner::RenderPass::setShaderMVPParam(&objectShader, camera, screenWidth, screenHeight);
+		Beginner::RenderPass::setShaderMVPParam(&grassShader, camera, screenWidth, screenHeight);
+		Beginner::RenderPass::setShaderLightParam(&objectShader, &dirLight);
 
 		objectShader.use();
 		{
-			objectShader.setMatrix4("view", glm::value_ptr(view));
-			objectShader.setMatrix4("projection", glm::value_ptr(projection));
-
 			objectShader.setFloat("material.shininess", imGuiWin.shininess);
-
-			objectShader.setVec3("dirLight.color", dirLight.color);
-			objectShader.setVec3("dirLight.position", dirLight.pos);
-
-			objectShader.setVec3("dirLight.ambient", dirLight.ambient);
-			objectShader.setVec3("dirLight.diffuse", dirLight.diffuse);
-			objectShader.setVec3("dirLight.specular", dirLight.specular);
-
-			objectShader.setVec3("dirLight.direction", dirLight.pos);
-			objectShader.setFloat("light.cutOff", glm::cos(glm::radians(12.0f)));
-			objectShader.setFloat("light.outerCutOff", glm::cos(glm::radians(24.0f)));
-
-			objectShader.setVec3("worldCameraPos", imGuiWin._camera.pos);
-
+			
 			model = glm::mat4(1.0f);
 			objectShader.setMatrix4("model", glm::value_ptr(model));
 
@@ -301,9 +283,6 @@ int main()
 
 		grassShader.use();
 		{
-			grassShader.setMatrix4("view", glm::value_ptr(view));
-			grassShader.setMatrix4("projection", glm::value_ptr(projection));
-
 			glBindTexture(GL_TEXTURE_2D, grassTexture);
 		}
 
