@@ -161,6 +161,11 @@ public:
 		return _fov;
 	}
 
+	glm::mat4 getViewMatrix() const
+	{
+		return glm::lookAt(pos, pos + _front, _up);
+	}
+
 	void updateCameraVectors();
 };
 

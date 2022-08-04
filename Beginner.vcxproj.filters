@@ -58,6 +58,9 @@
     <Filter Include="Head\Core\Object">
       <UniqueIdentifier>{6b6b554e-6e78-4035-9755-69d051f982df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resource\Picture\Skybox">
+      <UniqueIdentifier>{97cddf6c-9a81-4c27-9642-5ce61e754b05}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Plugin\imgui\imgui.cpp">
@@ -170,6 +173,9 @@
     <ClInclude Include="Beginner\Core\Object\object.h">
       <Filter>Head\Core\Object</Filter>
     </ClInclude>
+    <ClInclude Include="Beginner\Tool\resource_manager.h">
+      <Filter>Head\Tool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resource\awesomeface.png">
@@ -196,6 +202,24 @@
     <Image Include="Resource\grass.png">
       <Filter>resource\Picture</Filter>
     </Image>
+    <Image Include="Resource\skybox\back.jpg">
+      <Filter>resource\Picture\Skybox</Filter>
+    </Image>
+    <Image Include="Resource\skybox\bottom.jpg">
+      <Filter>resource\Picture\Skybox</Filter>
+    </Image>
+    <Image Include="Resource\skybox\front.jpg">
+      <Filter>resource\Picture\Skybox</Filter>
+    </Image>
+    <Image Include="Resource\skybox\left.jpg">
+      <Filter>resource\Picture\Skybox</Filter>
+    </Image>
+    <Image Include="Resource\skybox\right.jpg">
+      <Filter>resource\Picture\Skybox</Filter>
+    </Image>
+    <Image Include="Resource\skybox\top.jpg">
+      <Filter>resource\Picture\Skybox</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="Beginner\Shader\Outline.frag">
@@ -220,6 +244,12 @@
       <Filter>Shader</Filter>
     </None>
     <None Include="Beginner\Shader\GlScreen.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Beginner\Shader\skybox.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Beginner\Shader\skybox.frag">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>
