@@ -214,6 +214,10 @@
   <ItemGroup>
     <None Include="Beginner\Shader\GlScreen.frag" />
     <None Include="Beginner\Shader\GlScreen.vert" />
+    <None Include="Beginner\Shader\gl_param.frag" />
+    <None Include="Beginner\Shader\gl_param.vert" />
+    <None Include="Beginner\Shader\gl_shader_global.frag" />
+    <None Include="Beginner\Shader\gl_shader_global.vert" />
     <None Include="Beginner\Shader\Grass.frag" />
     <None Include="Beginner\Shader\Grass.vert" />
     <None Include="Beginner\Shader\Outline.frag">
@@ -222,6 +226,10 @@
     <None Include="Beginner\Shader\Outline.vert">
       <DeploymentContent>true</DeploymentContent>
     </None>
+    <None Include="Beginner\Shader\reflect.frag" />
+    <None Include="Beginner\Shader\reflect.vert" />
+    <None Include="Beginner\Shader\refract.frag" />
+    <None Include="Beginner\Shader\refract.vert" />
     <None Include="Beginner\Shader\skybox.frag" />
     <None Include="Beginner\Shader\skybox.vert" />
     <None Include="Beginner\Shader\StandardLightShader.frag">

@@ -252,5 +252,29 @@
     <None Include="Beginner\Shader\skybox.frag">
       <Filter>Shader</Filter>
     </None>
+    <None Include="Beginner\Shader\reflect.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Beginner\Shader\reflect.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Beginner\Shader\refract.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Beginner\Shader\refract.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Beginner\Shader\gl_param.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Beginner\Shader\gl_param.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Beginner\Shader\gl_shader_global.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="Beginner\Shader\gl_shader_global.frag">
+      <Filter>Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

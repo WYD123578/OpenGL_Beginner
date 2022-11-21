@@ -4,7 +4,6 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <iomanip>
-#include <map>
 #include <chrono>
 
 #include "Tool/CameraControl.h"
@@ -158,6 +157,9 @@ int main()
 		new Shader("Beginner/Shader/Grass.vert", "Beginner/Shader/Grass.frag"),
 		new Shader("Beginner/Shader/GlScreen.vert", "Beginner/Shader/GlScreen.frag"),
 		new Shader("Beginner/Shader/skybox.vert", "Beginner/Shader/skybox.frag"),
+		new Shader("Beginner/Shader/reflect.vert", "Beginner/Shader/reflect.frag"),
+		new Shader("Beginner/Shader/refract.vert", "Beginner/Shader/refract.frag"),
+		new Shader("Beginner/Shader/gl_param.vert", "Beginner/Shader/gl_param.frag"),
 	};
 
 	for (const Shader* s : shaderArray)
@@ -175,11 +177,11 @@ int main()
 	imGuiWin.addLight(&dirLight);
 
 	// 创建模型
-	// Model drawTargetModel = Model("F:\\OpenGL\\Projects\\Beginner\\Resource\\nanosuit\\nanosuit.obj");
+	// Beginner::Model drawTargetModel = Beginner::Model("F:\\OpenGL\\Projects\\Beginner\\Resource\\nanosuit\\nanosuit.obj");
 	Beginner::Mesh plane = {Beginner::SQUARE_VERTEX, Beginner::SQUARE_INDICES};
 	Beginner::Mesh floor = {Beginner::PLANE_VERTEX, Beginner::PLANE_INDICES};
 	Beginner::Mesh quad = {Beginner::QUAD_VERTICES_ARC, 2, false, true};
-	Beginner::Mesh cube = {Beginner::CUBE_VERTEX, 3, false, true};
+	Beginner::Mesh cube = {Beginner::CUBE_VERTEX, 3, true, true};
 	Beginner::Mesh skybox = { Beginner::SKYBOX_VERTICES, 3, false, false };
 
 	vector<std::string> faces
@@ -199,12 +201,12 @@ int main()
 	globalPass.setRenderState();
 
 	// 帧缓冲
-	unsigned int fbo;
+	GLuint fbo;
 	glGenFramebuffers(1, &fbo);
 	glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 
 	// 纹理附件
-	unsigned int textureColorbuffer;
+	GLuint textureColorbuffer;
 	glGenTextures(1, &textureColorbuffer);
 	glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, screenWidth, screenHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
@@ -216,20 +218,25 @@ int main()
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	// 渲染缓冲附件
-	unsigned int rbo;
+	GLuint rbo;
 	glGenRenderbuffers(1, &rbo);
 	glBindRenderbuffer(GL_RENDERBUFFER, rbo);
 	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, screenWidth, screenHeight);
 	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo);
 	glBindRenderbuffer(GL_RENDERBUFFER, 0);
 
+	// 绑定渲染帧缓冲，并检查其完整性
 	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 	{
 		std::cout << "[Error Frame Buffer] Frame Buffer is not complete\n";
 	}
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-	// glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	glBindFramebuffer(GL_FRAMEBUFFER, 0); // 检查完生成的FBO正确，就回到默认状态
+
+	// 深度缓冲;
+	GLuint depthMapFBO;
+	glGenFramebuffers(1, &depthMapFBO);
+	glEnable(GL_PROGRAM_POINT_SIZE);
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -241,7 +248,7 @@ int main()
 		// 更新Camera
 		processWindowKeyboardInput(deltaTime);
 
-		// glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+		glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 		// 清除屏幕
 		glClearColor(0, 0, 0, 1);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
@@ -256,69 +263,78 @@ int main()
 				Beginner::RenderPass::setShaderLightParam(s, &dirLight);
 			}
 
-			// 绘制天空盒，必须是场景中第一个被渲染的物体，且不计入深度
+			// shaderArray[1]->use();
+			// {
+			// 	glBindTexture(GL_TEXTURE_2D, grassTexture);
+			//
+			// 	map<float, glm::vec3> sorted;
+			// 	for (char i = 0; i < 1; i++)
+			// 	{
+			// 		glm::vec3 planePos = glm::vec3(0, 0, i * 0.6);
+			// 		float distance = glm::length(camera.pos - planePos);
+			// 		sorted[distance] = planePos;
+			// 	}
+			//
+			// 	for (auto it = sorted.rbegin(); it != sorted.rend(); ++it)
+			// 	{
+			// 		model = glm::mat4(1);
+			// 		model = glm::translate(model, it->second);
+			// 		shaderArray[1]->setMatrix4("model", glm::value_ptr(model));
+			// 		cube.draw(*shaderArray[1]);
+			// 	}
+			//
+			// 	// 取消绑定对其他Pass造成的影响
+			// 	glActiveTexture(GL_TEXTURE0);
+			// 	glBindTexture(GL_TEXTURE_2D, 0);
+			// }
+
+			shaderArray[5]->use();
+			{
+				model = glm::mat4(1);
+				model = glm::translate(model, glm::vec3(1, 0, 0));
+
+				glBindTexture(GL_TEXTURE_CUBE_MAP, cubeMapTexture);
+				shaderArray[5]->setMatrix4("model", glm::value_ptr(model));
+				cube.draw(*shaderArray[5]);
+				glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+			}
+
+			shaderArray[6]->use();
+			{
+				model = glm::mat4(1);
+				model = glm::translate(model, glm::vec3(3, 0, 0));
+
+				glBindTexture(GL_TEXTURE_CUBE_MAP, cubeMapTexture);
+				shaderArray[6]->setMatrix4("model", glm::value_ptr(model));
+				cube.draw(*shaderArray[6]);
+				glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+			}
+
 			shaderArray[3]->use();
 			{
-				glDepthMask(GL_FALSE);
+				glDepthFunc(GL_LEQUAL);
 				glActiveTexture(GL_TEXTURE0);
 				glBindTexture(GL_TEXTURE_CUBE_MAP, cubeMapTexture);
 				glm::mat4 view = glm::mat4(glm::mat3(camera.viewLookAtMat4()));
 				shaderArray[3]->setMatrix4("view", glm::value_ptr(view));
 				skybox.draw(*shaderArray[3]);
 				glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
-				glDepthMask(GL_TRUE);
-			}
-
-			// shaderArray[0]->use();
-			// {
-			// 	shaderArray[0]->setFloat("material.shininess", imGuiWin.shininess);
-			//
-			// 	model = glm::mat4(1.0f);
-			// 	shaderArray[0]->setMatrix4("model", glm::value_ptr(model));
-			//
-			// 	// DrawCall
-			// 	floor.draw(*shaderArray[0]);
-			// }
-
-			shaderArray[1]->use();
-			{
-				glBindTexture(GL_TEXTURE_2D, grassTexture);
-			
-				map<float, glm::vec3> sorted;
-				for (char i = 0; i < 1; i++)
-				{
-					glm::vec3 planePos = glm::vec3(0, 0, i * 0.6);
-					float distance = glm::length(camera.pos - planePos);
-					sorted[distance] = planePos;
-				}
-			
-				for (auto it = sorted.rbegin(); it != sorted.rend(); ++it)
-				{
-					model = glm::mat4(1);
-					model = glm::translate(model, it->second);
-					shaderArray[1]->setMatrix4("model", glm::value_ptr(model));
-					cube.draw(*shaderArray[1]);
-					// skybox.draw(*shaderArray[1]);
-				}
-			
-				// 取消绑定对其他Pass造成的影响
-				glActiveTexture(GL_TEXTURE0);
-				glBindTexture(GL_TEXTURE_2D, 0);
+				glDepthFunc(GL_LESS);
 			}
 		}
 
-		// glBindFramebuffer(GL_FRAMEBUFFER, 0);
-		// glDisable(GL_DEPTH_TEST);
-		// glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-		// glClear(GL_COLOR_BUFFER_BIT);
-		//
-		// shaderArray[2]->use();
-		// {
-		// 	glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
-		// 	quad.draw(*shaderArray[2]);
-		// 	glBindTexture(GL_TEXTURE_2D, 0);
-		// }
-		// glEnable(GL_DEPTH_TEST);
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glDisable(GL_DEPTH_TEST);
+		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+		
+		shaderArray[2]->use();
+		{
+			glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
+			quad.draw(*shaderArray[2]);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+		glEnable(GL_DEPTH_TEST);
 
 		// 放在最后绘制窗口
 		ImGuiWindow::render();

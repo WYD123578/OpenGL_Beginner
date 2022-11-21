@@ -21,6 +21,7 @@ public:
 	glm::vec3 specular = glm::vec3(0.50196078, 0.50196078, 0.50196078);
 	float shininess = .25 * 128.0;
 
+	bool usePolygonMode = false;
 
 	ImGuiWindow(GLFWwindow* window, CameraControl& camera): _camera(camera)
 	{
@@ -29,9 +30,9 @@ public:
 		ImGui::StyleColorsDark();
 
 		// 设置输入模式
-		//ImGuiIO& io = ImGui::GetIO();(void)io;
-		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+		ImGuiIO& io = ImGui::GetIO();(void)io;
+		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+		io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 
 		// 初始化OpenGl3.0以及GLFW相关配置
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
@@ -44,8 +45,35 @@ public:
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 
+		ImGui::ShowDemoWindow();
 		if (show_demo_window)
 			ImGui::ShowDemoWindow(&show_demo_window);
+
+		ImGui::Begin("Cubo Engine", &openMenu, ImGuiWindowFlags_MenuBar);
+
+		if (ImGui::BeginMenuBar())
+		{
+			if (ImGui::BeginMenu("File"))
+			{
+				if (ImGui::MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
+				if (ImGui::MenuItem("Save", "Ctrl+S")) { /* Do stuff */ }
+				ImGui::EndMenu();
+			}
+			ImGui::EndMenuBar();
+		}
+
+		if (ImGui::Button("polygon mode", ImVec2(100, 50)))
+		{
+			usePolygonMode = !usePolygonMode;
+			if (usePolygonMode)
+			{
+				glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+			}
+			else
+			{
+				glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+			}
+		}
 
 		drawCameraSettingWindow();
 		drawObjectSettingWindow();
@@ -55,7 +83,8 @@ public:
 			//std::cout << &(_lights[i].pos) << std::endl;
 			drawLightSettingWindow(_lights[i]);
 		}
-		
+		ImGui::End();
+
 		// Rendering
 		ImGui::Render();
 	}
@@ -63,7 +92,7 @@ public:
 	bool addLight(Light* light)
 	{
 		if (_currentLightCount >= 8) return false;
-		
+
 		_lights[_currentLightCount++] = light;
 		return true;
 	}
@@ -78,6 +107,8 @@ private:
 	Light* _lights[8];
 	int _currentLightCount = 0;
 
+	bool openMenu;
+
 	void drawCameraSettingWindow() const
 	{
 		ImGui::Begin("Camera Setting");
@@ -91,8 +122,8 @@ private:
 	void drawLightSettingWindow(Light* light) const
 	{
 		ImGui::Begin("Light Setting");
-		
-		ImGui::SliderFloat3("light pos",reinterpret_cast<float*>(&(light->pos)), -5.0f, 5.0f);
+
+		ImGui::SliderFloat3("light pos", reinterpret_cast<float*>(&(light->pos)), -5.0f, 5.0f);
 		ImGui::ColorEdit3("light color", reinterpret_cast<float*>(&(light->color)));
 		ImGui::ColorEdit3("light ambient", reinterpret_cast<float*>(&(light->ambient)));
 		ImGui::ColorEdit3("light diffuse", reinterpret_cast<float*>(&(light->diffuse)));

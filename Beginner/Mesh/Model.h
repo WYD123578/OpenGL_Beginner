@@ -27,14 +27,14 @@ namespace Beginner
 		{
 			loadModel(path);
 		}
-		
-		// void draw(const Shader& shader) const
-		// {
-		// 	for (auto& mesh : meshes)
-		// 	{
-		// 		mesh.draw(shader);
-		// 	}
-		// }
+
+		void draw(const Shader& shader) const
+		{
+			for (auto& mesh : meshes)
+			{
+				mesh.draw(shader);
+			}
+		}
 
 	private:
 		/*  函数   */
@@ -59,7 +59,6 @@ namespace Beginner
 			{
 				aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
 				meshes.push_back(processMesh(mesh, scene));
-				
 			}
 
 			for (unsigned int i = 0; i < node->mNumChildren; i++)
@@ -114,7 +113,8 @@ namespace Beginner
 			aiMaterial* material = scene->mMaterials[matIndex];
 			std::vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
 			textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end()); // 插入另外一个结构的内容
-			std::vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
+			std::vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR,
+			                                                         "texture_specular");
 			textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
 			std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_NORMALS, "texture_normals");
 			textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());

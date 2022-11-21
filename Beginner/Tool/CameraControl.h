@@ -77,7 +77,7 @@ public:
 	float pitch; // 俯仰角
 	float yaw; // 偏航角
 
-	float near = 1.0f; // 近平面
+	float near = 0.1f; // 近平面
 	float far = 100.0f; // 远平面
 
 	CameraControl(glm::vec3 mPos, glm::vec3 up = glm::vec3(0, 1, 0), float _pitch = 10.0f,
