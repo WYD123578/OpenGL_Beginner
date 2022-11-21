@@ -1,0 +1,6 @@
+Cloning into 'gtest'...
+fatal: invalid reference: master
+CMake Error at F:/OpenGL/assimp_build/test/gtest/tmp/gtest-gitclone.cmake:49 (message):
+  Failed to checkout tag: 'master'
+
+

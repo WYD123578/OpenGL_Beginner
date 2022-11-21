@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\9930802113b424757e737af30fc51787\gtest-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\ffb57a5c687f629b9c9a8f25e23e773b\gtest.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="F:\OpenGL\assimp-3.3.1\test\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="F:\OpenGL\assimp_build\test\CMakeFiles\gtest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{78BDCCE6-27C5-38A6-A1BF-9033A45B4E2D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

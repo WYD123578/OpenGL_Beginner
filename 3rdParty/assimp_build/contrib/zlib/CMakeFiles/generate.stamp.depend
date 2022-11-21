@@ -1,0 +1,14 @@
+# CMake generation dependency list for this directory.
+E:/Program Files/CMake/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake
+E:/Program Files/CMake/share/cmake-3.23/Modules/CheckFunctionExists.c
+E:/Program Files/CMake/share/cmake-3.23/Modules/CheckFunctionExists.cmake
+E:/Program Files/CMake/share/cmake-3.23/Modules/CheckIncludeFile.c.in
+E:/Program Files/CMake/share/cmake-3.23/Modules/CheckIncludeFile.cmake
+E:/Program Files/CMake/share/cmake-3.23/Modules/CheckIncludeFileCXX.cmake
+E:/Program Files/CMake/share/cmake-3.23/Modules/CheckTypeSize.c.in
+E:/Program Files/CMake/share/cmake-3.23/Modules/CheckTypeSize.cmake
+E:/Program Files/CMake/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake
+F:/OpenGL/assimp-3.3.1/contrib/zlib/CMakeLists.txt
+F:/OpenGL/assimp-3.3.1/contrib/zlib/zconf.h.cmakein
+F:/OpenGL/assimp-3.3.1/contrib/zlib/zlib.pc.cmakein
+F:/OpenGL/assimp_build/CMakeFiles/CheckTypeSize/OFF64_T.c

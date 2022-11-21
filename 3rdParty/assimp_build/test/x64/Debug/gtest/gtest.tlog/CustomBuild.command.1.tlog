@@ -1,0 +1,134 @@
+^F:\OPENGL\ASSIMP_BUILD\CMAKEFILES\5BD8F41FD535C8D7904AEAB95BCEEA87\GTEST-MKDIR.RULE
+setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -P F:/OpenGL/assimp_build/test/gtest/tmp/gtest-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/Debug/gtest-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^F:\OPENGL\ASSIMP_BUILD\CMAKEFILES\5BD8F41FD535C8D7904AEAB95BCEEA87\GTEST-DOWNLOAD.RULE
+setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=Debug -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-download-Debug.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/Debug/gtest-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^F:\OPENGL\ASSIMP_BUILD\CMAKEFILES\5BD8F41FD535C8D7904AEAB95BCEEA87\GTEST-UPDATE.RULE
+setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -P F:/OpenGL/assimp_build/test/gtest/tmp/gtest-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^F:\OPENGL\ASSIMP_BUILD\CMAKEFILES\5BD8F41FD535C8D7904AEAB95BCEEA87\GTEST-PATCH.RULE
+setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/Debug/gtest-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^F:\OPENGL\ASSIMP_BUILD\CMAKEFILES\5BD8F41FD535C8D7904AEAB95BCEEA87\GTEST-CONFIGURE.RULE
+setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=Debug -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-configure-Debug.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/Debug/gtest-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^F:\OPENGL\ASSIMP_BUILD\CMAKEFILES\5BD8F41FD535C8D7904AEAB95BCEEA87\GTEST-BUILD.RULE
+setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=Debug -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-build-Debug.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/Debug/gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^F:\OPENGL\ASSIMP_BUILD\CMAKEFILES\5BD8F41FD535C8D7904AEAB95BCEEA87\GTEST-INSTALL.RULE
+setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/Debug/gtest-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^F:\OPENGL\ASSIMP_BUILD\CMAKEFILES\9930802113B424757E737AF30FC51787\GTEST-COMPLETE.RULE
+setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -E make_directory F:/OpenGL/assimp_build/test/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/CMakeFiles/Debug/gtest-complete
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/Debug/gtest-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^F:\OPENGL\ASSIMP_BUILD\CMAKEFILES\FFB57A5C687F629B9C9A8F25E23E773B\GTEST.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^F:\OPENGL\ASSIMP-3.3.1\TEST\CMAKELISTS.TXT
+setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -SF:/OpenGL/assimp-3.3.1 -BF:/OpenGL/assimp_build --check-stamp-file F:/OpenGL/assimp_build/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

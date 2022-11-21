@@ -1,0 +1,310 @@
+﻿  3DSConverter.cpp
+  3DSExporter.cpp
+  3DSLoader.cpp
+  ACLoader.cpp
+  ASELoader.cpp
+  ASEParser.cpp
+  AssbinExporter.cpp
+  AssbinLoader.cpp
+  Assimp.cpp
+  AssimpCExport.cpp
+  AssxmlExporter.cpp
+  B3DImporter.cpp
+F:\OpenGL\assimp-3.3.1\code\Assimp.cpp(45,10): fatal error C1083: 无法打开包括文件: “assimp/cimport.h”: No such file or directory
+F:\OpenGL\assimp-3.3.1\code\CInterfaceIOWrapper.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/cfileio.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\AssimpCExport.cpp)
+F:\OpenGL\assimp-3.3.1\code\AssbinExporter.cpp(44,10): fatal error C1083: 无法打开包括文件: “assimp/version.h”: No such file or directory
+F:\OpenGL\assimp-3.3.1\code\B3DImporter.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\B3DImporter.cpp)
+F:\OpenGL\assimp-3.3.1\code\AssxmlExporter.cpp(44,10): fatal error C1083: 无法打开包括文件: “./../include/assimp/version.h”: No such file or directory
+F:\OpenGL\assimp-3.3.1\code\ByteSwapper.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\3DSExporter.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\AssbinLoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\3DSConverter.cpp)
+  BVHLoader.cpp
+  BaseImporter.cpp
+  BaseProcess.cpp
+  Bitmap.cpp
+  BlenderBMesh.cpp
+  BlenderDNA.cpp
+  BlenderLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ACLoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ASELoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ASEParser.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\3DSLoader.cpp)
+  BlenderModifier.cpp
+  BlenderScene.cpp
+  BlenderTessellator.cpp
+  COBLoader.cpp
+  CSMLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\Bitmap.cpp(50,10): fatal error C1083: 无法打开包括文件: “assimp/texture.h”: No such file or directory
+  CalcTangentsProcess.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\BlenderModifier.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\BaseProcess.cpp)
+  ColladaExporter.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\BlenderLoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\BlenderDNA.cpp)
+  ColladaLoader.cpp
+  ColladaParser.cpp
+  ComputeUVMappingProcess.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\BlenderScene.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\BlenderBMesh.cpp)
+  ConvertToLHProcess.cpp
+  D3MFImporter.cpp
+F:\OpenGL\assimp-3.3.1\code\ColladaExporter.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ColladaExporter.cpp)
+  D3MFOpcPackage.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\BVHLoader.cpp)
+  DXFLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\BaseImporter.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\CSMLoader.cpp)
+  DeboneProcess.cpp
+F:\OpenGL\assimp-3.3.1\code\ConvertToLHProcess.h(52,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ConvertToLHProcess.cpp)
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\CalcTangentsProcess.cpp)
+  DefaultIOStream.cpp
+  DefaultIOSystem.cpp
+  DefaultLogger.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\BlenderTessellator.cpp)
+  Exporter.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\COBLoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\ProcessHelper.h(44,10): fatal error C1083: 无法打开包括文件: “assimp/postprocess.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\DeboneProcess.cpp)
+  FBXAnimation.cpp
+  FBXBinaryTokenizer.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.cpp(46,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory
+F:\OpenGL\assimp-3.3.1\code\DefaultIOSystem.h(45,10): fatal error C1083: 无法打开包括文件: “assimp/IOSystem.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\DefaultIOSystem.cpp)
+  FBXConverter.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOSystem.h(45,10): fatal error C1083: 无法打开包括文件: “assimp/IOSystem.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\DefaultLogger.cpp)
+  FBXDeformer.cpp
+  FBXDocument.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOSystem.h(45,10): fatal error C1083: 无法打开包括文件: “assimp/IOSystem.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\Exporter.cpp)
+  FBXDocumentUtil.cpp
+F:\OpenGL\assimp-3.3.1\code\FBXDocument.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/mesh.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXDocument.cpp)
+  FBXImporter.cpp
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ComputeUVMappingProcess.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ColladaLoader.cpp)
+  FBXMaterial.cpp
+  FBXMeshGeometry.cpp
+F:\OpenGL\assimp-3.3.1\code\D3MFOpcPackage.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/IOSystem.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\D3MFOpcPackage.cpp)
+  FBXModel.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\DXFLoader.cpp)
+  FBXNodeAttribute.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\D3MFImporter.cpp)
+  FBXParser.cpp
+F:\OpenGL\assimp-3.3.1\code\FBXTokenizer.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXBinaryTokenizer.cpp)
+  FBXProperties.cpp
+F:\OpenGL\assimp-3.3.1\code\irrXMLWrapper.h(46,10): fatal error C1083: 无法打开包括文件: “./../include/assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ColladaParser.cpp)
+  FBXTokenizer.cpp
+F:\OpenGL\assimp-3.3.1\code\StringComparison.h(53,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXTokenizer.cpp)
+  FBXUtil.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXConverter.cpp)
+  FindDegenerates.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXDeformer.cpp)
+  FindInstancesProcess.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXImporter.cpp)
+  FindInvalidDataProcess.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXAnimation.cpp)
+  FixNormalsStep.cpp
+F:\OpenGL\assimp-3.3.1\code\ProcessHelper.h(44,10): fatal error C1083: 无法打开包括文件: “assimp/postprocess.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FindDegenerates.cpp)
+  GenFaceNormalsProcess.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXDocumentUtil.cpp)
+  GenVertexNormalsProcess.cpp
+F:\OpenGL\assimp-3.3.1\code\FBXTokenizer.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXParser.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXMeshGeometry.cpp)
+  HMPLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\FBXTokenizer.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXProperties.cpp)
+  IFCBoolean.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXModel.cpp)
+  IFCCurve.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXMaterial.cpp)
+  IFCGeometry.cpp
+  IFCLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXNodeAttribute.cpp)
+  IFCMaterial.cpp
+F:\OpenGL\assimp-3.3.1\code\HMPLoader.h(48,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\HMPLoader.cpp)
+  IFCOpenings.cpp
+F:\OpenGL\assimp-3.3.1\code\IFCBoolean.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FindInstancesProcess.cpp)
+  IFCProfile.cpp
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\GenFaceNormalsProcess.cpp)
+  IFCUtil.cpp
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FindInvalidDataProcess.cpp)
+  IRRLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FixNormalsStep.cpp)
+F:\OpenGL\assimp-3.3.1\code\FBXTokenizer.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\FBXUtil.cpp)
+  IRRMeshLoader.cpp
+  IRRShared.cpp
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\GenVertexNormalsProcess.cpp)
+  Importer.cpp
+F:\OpenGL\assimp-3.3.1\code\irrXMLWrapper.h(46,10): fatal error C1083: 无法打开包括文件: “./../include/assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\IRRLoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\Importer.cpp(46,10): fatal error C1083: 无法打开包括文件: “assimp/version.h”: No such file or directory
+  ImporterRegistry.cpp
+  ImproveCacheLocality.cpp
+F:\OpenGL\assimp-3.3.1\code\irrXMLWrapper.h(46,10): fatal error C1083: 无法打开包括文件: “./../include/assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\IRRShared.cpp)
+  JoinVerticesProcess.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\IFCLoader.cpp)
+  LWOAnimation.cpp
+F:\OpenGL\assimp-3.3.1\code\FBXDocument.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/mesh.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\IFCBoolean.cpp)
+F:\OpenGL\assimp-3.3.1\code\FBXDocument.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/mesh.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\IFCGeometry.cpp)
+  LWOBLoader.cpp
+  LWOLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\FBXDocument.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/mesh.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\IFCMaterial.cpp)
+F:\OpenGL\assimp-3.3.1\code\FBXDocument.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/mesh.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\IFCOpenings.cpp)
+  LWOMaterial.cpp
+  LWSLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\LWOLoader.h(45,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\LWOBLoader.cpp)
+  LimitBoneWeightsProcess.cpp
+F:\OpenGL\assimp-3.3.1\code\FBXDocument.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/mesh.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\IFCUtil.cpp)
+  MD2Loader.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\IRRMeshLoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\LWOLoader.h(45,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\LWOLoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\LWOLoader.h(45,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\LWOMaterial.cpp)
+  MD3Loader.cpp
+F:\OpenGL\assimp-3.3.1\code\FBXDocument.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/mesh.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\IFCProfile.cpp)
+F:\OpenGL\assimp-3.3.1\code\FBXDocument.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/mesh.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\IFCCurve.cpp)
+  MD5Loader.cpp
+  MD5Parser.cpp
+  MDCLoader.cpp
+  MDLLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\RemoveComments.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\MD5Loader.cpp)
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ImproveCacheLocality.cpp)
+  MDLMaterialLoader.cpp
+  MS3DLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\MDCLoader.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\MDCLoader.cpp)
+  MakeVerboseFormat.cpp
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\JoinVerticesProcess.cpp)
+  MaterialSystem.cpp
+F:\OpenGL\assimp-3.3.1\code\XFileHelper.h(50,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ImporterRegistry.cpp)
+  NDOLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\LWOFileData.h(55,10): fatal error C1083: 无法打开包括文件: “assimp/mesh.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\LWOAnimation.cpp)
+  NFFLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\NDOLoader.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/vector3.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\NDOLoader.cpp)
+  OFFLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\LWOFileData.h(55,10): fatal error C1083: 无法打开包括文件: “assimp/mesh.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\LWSLoader.cpp)
+  ObjExporter.cpp
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\LimitBoneWeightsProcess.cpp)
+  ObjFileImporter.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\MD2Loader.cpp)
+  ObjFileMtlImporter.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\MD3Loader.cpp)
+F:\OpenGL\assimp-3.3.1\code\ObjExporter.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ObjExporter.cpp)
+  ObjFileParser.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\MD5Parser.cpp)
+  OgreBinarySerializer.cpp
+  OgreImporter.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOSystem.h(45,10): fatal error C1083: 无法打开包括文件: “assimp/IOSystem.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ObjFileImporter.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\MS3DLoader.cpp)
+  OgreMaterial.cpp
+  OgreStructs.cpp
+F:\OpenGL\assimp-3.3.1\code\MemoryIOWrapper.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\OgreBinarySerializer.cpp)
+  OgreXmlSerializer.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\MDLLoader.cpp)
+  OpenGEXExporter.cpp
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\MakeVerboseFormat.cpp)
+  OpenGEXImporter.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\MDLMaterialLoader.cpp)
+  OptimizeGraph.cpp
+F:\OpenGL\assimp-3.3.1\code\MemoryIOWrapper.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\OgreStructs.cpp)
+  OptimizeMeshes.cpp
+F:\OpenGL\assimp-3.3.1\code\MemoryIOWrapper.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\OgreXmlSerializer.cpp)
+  PlyExporter.cpp
+F:\OpenGL\assimp-3.3.1\code\OpenGEXExporter.h(43,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\OpenGEXExporter.cpp)
+  PlyLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\StringComparison.h(53,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\MaterialSystem.cpp)
+  PlyParser.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\NFFLoader.cpp)
+  PostStepRegistry.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\OFFLoader.cpp)
+  PretransformVertices.cpp
+F:\OpenGL\assimp-3.3.1\code\ProcessHelper.h(44,10): fatal error C1083: 无法打开包括文件: “assimp/postprocess.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\PostStepRegistry.cpp)
+  ProcessHelper.cpp
+F:\OpenGL\assimp-3.3.1\code\ProcessHelper.h(44,10): fatal error C1083: 无法打开包括文件: “assimp/postprocess.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ProcessHelper.cpp)
+  Q3BSPFileImporter.cpp
+F:\OpenGL\assimp-3.3.1\code\StringComparison.h(53,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ObjFileMtlImporter.cpp)
+  Q3BSPFileParser.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\OgreImporter.cpp)
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\OptimizeMeshes.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\OpenGEXImporter.cpp)
+  Q3BSPZipArchive.cpp
+  Q3DLoader.cpp
+  RawLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\OgreMaterial.cpp)
+F:\OpenGL\assimp-3.3.1\code\ObjFileParser.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/vector2.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ObjFileParser.cpp)
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\OptimizeGraph.cpp)
+  RemoveComments.cpp
+  RemoveRedundantMaterials.cpp
+  RemoveVCProcess.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOSystem.h(45,10): fatal error C1083: 无法打开包括文件: “assimp/IOSystem.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\Q3BSPFileImporter.cpp)
+  SGSpatialSort.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\PlyLoader.cpp)
+  SIBImporter.cpp
+F:\OpenGL\assimp-3.3.1\code\Q3BSPZipArchive.h(44,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\Q3BSPZipArchive.cpp)
+F:\OpenGL\assimp-3.3.1\code\RemoveComments.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\RemoveComments.cpp)
+  SMDLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\SMDLoader.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+F:\OpenGL\assimp-3.3.1\code\SGSpatialSort.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\SGSpatialSort.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\PlyParser.cpp)
+  STEPFileEncoding.cpp
+  STEPFileReader.cpp
+  STLExporter.cpp
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\PretransformVertices.cpp)
+  STLLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\PlyExporter.cpp)
+  SceneCombiner.cpp
+F:\OpenGL\assimp-3.3.1\code\SceneCombiner.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\SceneCombiner.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\Q3DLoader.cpp)
+  ScenePreprocessor.cpp
+  SkeletonMeshBuilder.cpp
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\RemoveVCProcess.cpp)
+  SortByPTypeProcess.cpp
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\RemoveRedundantMaterials.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\Q3BSPFileParser.cpp)
+F:\OpenGL\assimp-3.3.1\code\ScenePreprocessor.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/defs.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ScenePreprocessor.cpp)
+  SpatialSort.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\RawLoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\ProcessHelper.h(44,10): fatal error C1083: 无法打开包括文件: “assimp/postprocess.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\SortByPTypeProcess.cpp)
+  SplitByBoneCountProcess.cpp
+  SplitLargeMeshes.cpp
+  StandardShapes.cpp
+F:\OpenGL\assimp-3.3.1\code\SkeletonMeshBuilder.cpp(45,10): fatal error C1083: 无法打开包括文件: “assimp/scene.h”: No such file or directory
+  StepExporter.cpp
+  Subdivision.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\SIBImporter.cpp)
+  TargetAnimation.cpp
+F:\OpenGL\assimp-3.3.1\code\StandardShapes.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/vector3.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\StandardShapes.cpp)
+F:\OpenGL\assimp-3.3.1\code\StepExporter.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\StepExporter.cpp)
+  TerragenLoader.cpp
+F:\OpenGL\assimp-3.3.1\code\SpatialSort.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  TextureTransform.cpp
+F:\OpenGL\assimp-3.3.1\code\TargetAnimation.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/anim.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\TargetAnimation.cpp)
+  TriangulateProcess.cpp
+F:\OpenGL\assimp-3.3.1\code\TextureTransform.cpp(45,10): fatal error C1083: 无法打开包括文件: “assimp/Importer.hpp”: No such file or directory
+F:\OpenGL\assimp-3.3.1\code\SceneCombiner.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\Subdivision.cpp)
+  UnrealLoader.cpp
+  ValidateDataStructure.cpp
+F:\OpenGL\assimp-3.3.1\code\StringComparison.h(53,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\STEPFileEncoding.cpp)
+  Version.cpp
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\SMDLoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\ValidateDataStructure.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\ValidateDataStructure.cpp)
+  VertexTriangleAdjacency.cpp
+  XFileExporter.cpp
+F:\OpenGL\assimp-3.3.1\code\Version.cpp(4,10): fatal error C1083: 无法打开包括文件: “./../include/assimp/version.h”: No such file or directory
+  XFileImporter.cpp
+F:\OpenGL\assimp-3.3.1\code\XFileExporter.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\XFileExporter.cpp)
+  XFileParser.cpp
+F:\OpenGL\assimp-3.3.1\code\FBXDocument.h(49,10): fatal error C1083: 无法打开包括文件: “assimp/mesh.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\STEPFileReader.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\STLLoader.cpp)
+  XGLLoader.cpp
+  glTFExporter.cpp
+F:\OpenGL\assimp-3.3.1\code\STLExporter.cpp(46,10): fatal error C1083: 无法打开包括文件: “assimp/version.h”: No such file or directory
+  glTFImporter.cpp
+F:\OpenGL\assimp-3.3.1\code\glTFExporter.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\glTFExporter.cpp)
+  irrXML.cpp
+F:\OpenGL\assimp-3.3.1\code\SpatialSort.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\SpatialSort.cpp)
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\SplitByBoneCountProcess.cpp)
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\SplitLargeMeshes.cpp)
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\TriangulateProcess.cpp)
+F:\OpenGL\assimp-3.3.1\contrib\irrXML\irrString.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 F:\OpenGL\assimp-3.3.1\contrib\irrXML\irrXML.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\TerragenLoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\UnrealLoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\BaseProcess.h(47,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\VertexTriangleAdjacency.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\XGLLoader.cpp)
+F:\OpenGL\assimp-3.3.1\code\XFileParser.h(48,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\XFileParser.cpp)
+F:\OpenGL\assimp-3.3.1\code\XFileHelper.h(50,10): fatal error C1083: 无法打开包括文件: “assimp/types.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\XFileImporter.cpp)
+F:\OpenGL\assimp-3.3.1\code\DefaultIOStream.h(46,10): fatal error C1083: 无法打开包括文件: “assimp/IOStream.hpp”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\code\glTFImporter.cpp)
+F:\OpenGL\assimp-3.3.1\code\StringComparison.h(53,10): fatal error C1083: 无法打开包括文件: “assimp/ai_assert.h”: No such file or directory (编译源文件 F:\OpenGL\assimp-3.3.1\contrib\irrXML\irrXML.cpp)

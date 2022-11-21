@@ -1,0 +1,12 @@
+﻿  Performing download step (git clone) for 'gtest'
+  CMake Error at gtest-stamp/gtest-download-Debug.cmake:49 (message):
+    Command failed: 1
+  
+     'E:/Program Files/CMake/bin/cmake.exe' '-P' 'F:/OpenGL/assimp_build/test/gtest/tmp/gtest-gitclone.cmake'
+  
+    See also
+  
+      F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-download-*.log
+  
+  
+E:\Program Files\Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(241,5): error MSB8066: “F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-download.rule;F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-update.rule;F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-patch.rule;F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-configure.rule;F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-build.rule;F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-install.rule;F:\OpenGL\assimp_build\CMakeFiles\9930802113b424757e737af30fc51787\gtest-complete.rule;F:\OpenGL\assimp_build\CMakeFiles\ffb57a5c687f629b9c9a8f25e23e773b\gtest.rule”的自定义生成已退出，代码为 1。

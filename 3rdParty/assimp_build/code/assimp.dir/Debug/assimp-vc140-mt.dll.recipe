@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>F:\OpenGL\assimp_build\x64\Debug\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\OpenGL\assimp_build\code\Debug\assimp-vc140-mt.dll</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

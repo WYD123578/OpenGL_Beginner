@@ -1,0 +1,835 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{67BFD836-B4D7-3966-B9E4-CA0F24065ABA}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>gtest</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>F:\OpenGL\assimp-3.3.1\.;F:\OpenGL\assimp_build;F:\OpenGL\assimp-3.3.1\include;F:\OpenGL\assimp-3.3.1\contrib\zlib;F:\OpenGL\assimp_build\contrib\zlib;F:\OpenGL\assimp_build\test\gtest\src\gtest\googletest\include;F:\OpenGL\assimp_build\test\gtest\src\gtest\gtest\include;F:\OpenGL\assimp-3.3.1\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>F:\OpenGL\assimp-3.3.1\.;F:\OpenGL\assimp_build;F:\OpenGL\assimp-3.3.1\include;F:\OpenGL\assimp-3.3.1\contrib\zlib;F:\OpenGL\assimp_build\contrib\zlib;F:\OpenGL\assimp_build\test\gtest\src\gtest\googletest\include;F:\OpenGL\assimp_build\test\gtest\src\gtest\gtest\include;F:\OpenGL\assimp-3.3.1\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>F:\OpenGL\assimp-3.3.1\.;F:\OpenGL\assimp_build;F:\OpenGL\assimp-3.3.1\include;F:\OpenGL\assimp-3.3.1\contrib\zlib;F:\OpenGL\assimp_build\contrib\zlib;F:\OpenGL\assimp_build\test\gtest\src\gtest\googletest\include;F:\OpenGL\assimp_build\test\gtest\src\gtest\gtest\include;F:\OpenGL\assimp-3.3.1\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>F:\OpenGL\assimp-3.3.1\.;F:\OpenGL\assimp_build;F:\OpenGL\assimp-3.3.1\include;F:\OpenGL\assimp-3.3.1\contrib\zlib;F:\OpenGL\assimp_build\contrib\zlib;F:\OpenGL\assimp_build\test\gtest\src\gtest\googletest\include;F:\OpenGL\assimp_build\test\gtest\src\gtest\gtest\include;F:\OpenGL\assimp-3.3.1\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-mkdir.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -P F:/OpenGL/assimp_build/test/gtest/tmp/gtest-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -P F:/OpenGL/assimp_build/test/gtest/tmp/gtest-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -P F:/OpenGL/assimp_build/test/gtest/tmp/gtest-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -P F:/OpenGL/assimp_build/test/gtest/tmp/gtest-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-download.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=$(Configuration) -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-download-Debug.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\gtest-gitinfo.txt;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=$(Configuration) -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-download-Release.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\gtest-gitinfo.txt;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=$(Configuration) -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-download-MinSizeRel.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\gtest-gitinfo.txt;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=$(Configuration) -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-download-RelWithDebInfo.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\gtest-gitinfo.txt;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-update.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing update step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -P F:/OpenGL/assimp_build/test/gtest/tmp/gtest-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing update step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -P F:/OpenGL/assimp_build/test/gtest/tmp/gtest-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing update step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -P F:/OpenGL/assimp_build/test/gtest/tmp/gtest-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing update step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -P F:/OpenGL/assimp_build/test/gtest/tmp/gtest-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-patch.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-configure.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing configure step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=$(Configuration) -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-configure-Debug.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\tmp\gtest-cfgcmd.txt;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing configure step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=$(Configuration) -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-configure-Release.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\tmp\gtest-cfgcmd.txt;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing configure step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=$(Configuration) -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-configure-MinSizeRel.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\tmp\gtest-cfgcmd.txt;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing configure step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=$(Configuration) -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-configure-RelWithDebInfo.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\tmp\gtest-cfgcmd.txt;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-build.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing build step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=$(Configuration) -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-build-Debug.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing build step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=$(Configuration) -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-build-Release.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing build step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=$(Configuration) -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-build-MinSizeRel.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing build step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -Dconfig=$(Configuration) -P F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/gtest-build-RelWithDebInfo.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\5bd8f41fd535c8d7904aeab95bceea87\gtest-install.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No install step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No install step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No install step for 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd F:\OpenGL\assimp_build\test\gtest\src\gtest-build
+if %errorlevel% neq 0 goto :cmEnd
+F:
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\9930802113b424757e737af30fc51787\gtest-complete.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -E make_directory F:/OpenGL/assimp_build/test/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/CMakeFiles/$(Configuration)/gtest-complete
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-install;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-mkdir;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-download;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-update;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-patch;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-configure;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\$(Configuration)\gtest-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -E make_directory F:/OpenGL/assimp_build/test/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/CMakeFiles/$(Configuration)/gtest-complete
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-install;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-mkdir;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-download;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-update;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-patch;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-configure;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\$(Configuration)\gtest-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -E make_directory F:/OpenGL/assimp_build/test/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/CMakeFiles/$(Configuration)/gtest-complete
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-install;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-mkdir;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-download;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-update;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-patch;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-configure;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\$(Configuration)\gtest-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'gtest'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -E make_directory F:/OpenGL/assimp_build/test/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/CMakeFiles/$(Configuration)/gtest-complete
+if %errorlevel% neq 0 goto :cmEnd
+"E:\Program Files\CMake\bin\cmake.exe" -E touch F:/OpenGL/assimp_build/test/gtest/src/gtest-stamp/$(Configuration)/gtest-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-install;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-mkdir;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-download;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-update;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-patch;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-configure;F:\OpenGL\assimp_build\test\gtest\src\gtest-stamp\$(Configuration)\gtest-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\$(Configuration)\gtest-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\OpenGL\assimp_build\CMakeFiles\ffb57a5c687f629b9c9a8f25e23e773b\gtest.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\$(Configuration)\gtest-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\gtest</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\$(Configuration)\gtest-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\gtest</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\$(Configuration)\gtest-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\gtest</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\$(Configuration)\gtest-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\gtest</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\OpenGL\assimp-3.3.1\test\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule F:/OpenGL/assimp-3.3.1/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -SF:/OpenGL/assimp-3.3.1 -BF:/OpenGL/assimp_build --check-stamp-file F:/OpenGL/assimp_build/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\Program Files\CMake\share\cmake-3.23\Modules\CheckCSourceCompiles.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\CheckIncludeFile.c.in;E:\Program Files\CMake\share\cmake-3.23\Modules\CheckIncludeFile.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\CheckLibraryExists.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\RepositoryInfo.txt.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\cfgcmd.txt.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\gitclone.cmake.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\gitupdate.cmake.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\mkdirs.cmake.in;E:\Program Files\CMake\share\cmake-3.23\Modules\FindGit.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageMessage.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\FindThreads.cmake;F:\OpenGL\assimp-3.3.1\cmake-modules\AddGTest.cmake;F:\OpenGL\assimp_build\test\gtest\tmp\gtest-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule F:/OpenGL/assimp-3.3.1/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -SF:/OpenGL/assimp-3.3.1 -BF:/OpenGL/assimp_build --check-stamp-file F:/OpenGL/assimp_build/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\Program Files\CMake\share\cmake-3.23\Modules\CheckCSourceCompiles.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\CheckIncludeFile.c.in;E:\Program Files\CMake\share\cmake-3.23\Modules\CheckIncludeFile.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\CheckLibraryExists.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\RepositoryInfo.txt.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\cfgcmd.txt.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\gitclone.cmake.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\gitupdate.cmake.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\mkdirs.cmake.in;E:\Program Files\CMake\share\cmake-3.23\Modules\FindGit.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageMessage.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\FindThreads.cmake;F:\OpenGL\assimp-3.3.1\cmake-modules\AddGTest.cmake;F:\OpenGL\assimp_build\test\gtest\tmp\gtest-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule F:/OpenGL/assimp-3.3.1/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -SF:/OpenGL/assimp-3.3.1 -BF:/OpenGL/assimp_build --check-stamp-file F:/OpenGL/assimp_build/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\Program Files\CMake\share\cmake-3.23\Modules\CheckCSourceCompiles.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\CheckIncludeFile.c.in;E:\Program Files\CMake\share\cmake-3.23\Modules\CheckIncludeFile.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\CheckLibraryExists.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\RepositoryInfo.txt.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\cfgcmd.txt.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\gitclone.cmake.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\gitupdate.cmake.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\mkdirs.cmake.in;E:\Program Files\CMake\share\cmake-3.23\Modules\FindGit.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageMessage.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\FindThreads.cmake;F:\OpenGL\assimp-3.3.1\cmake-modules\AddGTest.cmake;F:\OpenGL\assimp_build\test\gtest\tmp\gtest-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule F:/OpenGL/assimp-3.3.1/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -SF:/OpenGL/assimp-3.3.1 -BF:/OpenGL/assimp_build --check-stamp-file F:/OpenGL/assimp_build/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\Program Files\CMake\share\cmake-3.23\Modules\CheckCSourceCompiles.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\CheckIncludeFile.c.in;E:\Program Files\CMake\share\cmake-3.23\Modules\CheckIncludeFile.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\CheckLibraryExists.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\RepositoryInfo.txt.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\cfgcmd.txt.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\gitclone.cmake.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\gitupdate.cmake.in;E:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\mkdirs.cmake.in;E:\Program Files\CMake\share\cmake-3.23\Modules\FindGit.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\FindPackageMessage.cmake;E:\Program Files\CMake\share\cmake-3.23\Modules\FindThreads.cmake;F:\OpenGL\assimp-3.3.1\cmake-modules\AddGTest.cmake;F:\OpenGL\assimp_build\test\gtest\tmp\gtest-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\OpenGL\assimp_build\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="F:\OpenGL\assimp_build\test\CMakeFiles\gtest">
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:\OpenGL\assimp_build\ZERO_CHECK.vcxproj">
+      <Project>{879655C1-50F0-352B-AE63-BC59151600C3}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

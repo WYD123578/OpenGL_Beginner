@@ -1,0 +1,18 @@
+# CMake generation dependency list for this directory.
+E:/Program Files/CMake/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake
+E:/Program Files/CMake/share/cmake-3.23/Modules/CheckIncludeFile.c.in
+E:/Program Files/CMake/share/cmake-3.23/Modules/CheckIncludeFile.cmake
+E:/Program Files/CMake/share/cmake-3.23/Modules/CheckLibraryExists.cmake
+E:/Program Files/CMake/share/cmake-3.23/Modules/ExternalProject.cmake
+E:/Program Files/CMake/share/cmake-3.23/Modules/ExternalProject/RepositoryInfo.txt.in
+E:/Program Files/CMake/share/cmake-3.23/Modules/ExternalProject/cfgcmd.txt.in
+E:/Program Files/CMake/share/cmake-3.23/Modules/ExternalProject/gitclone.cmake.in
+E:/Program Files/CMake/share/cmake-3.23/Modules/ExternalProject/gitupdate.cmake.in
+E:/Program Files/CMake/share/cmake-3.23/Modules/ExternalProject/mkdirs.cmake.in
+E:/Program Files/CMake/share/cmake-3.23/Modules/FindGit.cmake
+E:/Program Files/CMake/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake
+E:/Program Files/CMake/share/cmake-3.23/Modules/FindPackageMessage.cmake
+E:/Program Files/CMake/share/cmake-3.23/Modules/FindThreads.cmake
+F:/OpenGL/assimp-3.3.1/cmake-modules/AddGTest.cmake
+F:/OpenGL/assimp-3.3.1/test/CMakeLists.txt
+F:/OpenGL/assimp_build/test/gtest/tmp/gtest-mkdirs.cmake

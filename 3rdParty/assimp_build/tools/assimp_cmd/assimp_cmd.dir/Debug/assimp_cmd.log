@@ -1,0 +1,11 @@
+﻿  Error copying file (if different) from "F:/OpenGL/assimp_build/code/Debug/assimp-vc140-mt.dll" to "F:/OpenGL/assimp_build/tools/assimp_cmd/Debug".
+E:\Program Files\Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(145,5): error MSB3073: 命令“setlocal
+E:\Program Files\Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(145,5): error MSB3073: "E:\Program Files\CMake\bin\cmake.exe" -E copy_if_different F:/OpenGL/assimp_build/code/Debug/assimp-vc140-mt.dll F:/OpenGL/assimp_build/tools/assimp_cmd/Debug
+E:\Program Files\Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(145,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd
+E:\Program Files\Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(145,5): error MSB3073: :cmEnd
+E:\Program Files\Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(145,5): error MSB3073: endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+E:\Program Files\Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(145,5): error MSB3073: :cmErrorLevel
+E:\Program Files\Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(145,5): error MSB3073: exit /b %1
+E:\Program Files\Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(145,5): error MSB3073: :cmDone
+E:\Program Files\Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(145,5): error MSB3073: if %errorlevel% neq 0 goto :VCEnd
+E:\Program Files\Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(145,5): error MSB3073: :VCEnd”已退出，代码为 1。

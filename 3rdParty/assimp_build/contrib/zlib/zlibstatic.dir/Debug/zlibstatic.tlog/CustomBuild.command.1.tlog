@@ -1,0 +1,10 @@
+^F:\OPENGL\ASSIMP-3.3.1\CONTRIB\ZLIB\CMAKELISTS.TXT
+setlocal
+"E:\Program Files\CMake\bin\cmake.exe" -SF:/OpenGL/assimp-3.3.1 -BF:/OpenGL/assimp_build --check-stamp-file F:/OpenGL/assimp_build/contrib/zlib/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
