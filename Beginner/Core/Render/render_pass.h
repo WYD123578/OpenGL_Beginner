@@ -27,6 +27,25 @@ namespace Beginner
 			_currentRenderParam = param;
 		}
 
+		static unsigned int useUniform(const int size, const int uniformBlockIndex)
+		{
+			unsigned int uboBlock;
+			glGenBuffers(1, &uboBlock);
+			glBindBuffer(GL_UNIFORM_BUFFER, uboBlock);
+			glBufferData(GL_UNIFORM_BUFFER, size, NULL, GL_STATIC_DRAW);
+			glBindBuffer(GL_UNIFORM_BUFFER, 0);
+
+			glBindBufferRange(GL_UNIFORM_BUFFER, uniformBlockIndex, uboBlock, 0, size);
+			return uboBlock;
+		}
+
+		static void writeUniformBuffer(const unsigned int ubo, const int size, const int offset, const void* data)
+		{
+			glBindBuffer(GL_UNIFORM_BUFFER, ubo);
+			glBufferSubData(GL_UNIFORM_BUFFER, offset, size, data);
+			glBindBuffer(GL_UNIFORM_BUFFER, 0);
+		}
+
 		void setRenderState() const
 		{
 			if (!_currentRenderParam.enableSetting) return;
@@ -82,8 +101,15 @@ namespace Beginner
 			                                        camera.near,
 			                                        camera.far);
 
-			shader->setMatrix4("view", glm::value_ptr(view));
-			shader->setMatrix4("projection", glm::value_ptr(projection));
+			unsigned int matrices = glGetUniformBlockIndex(shader->ID, "Matrices");
+			glUniformBlockBinding(shader->ID, matrices, 0);
+
+			unsigned int uboBlock = useUniform(2 * sizeof(glm::mat4), 0);
+			writeUniformBuffer(uboBlock, sizeof(glm::mat4), 0, value_ptr(view));
+			writeUniformBuffer(uboBlock, sizeof(glm::mat4), sizeof(glm::mat4), value_ptr(projection));
+
+			// shader->setMatrix4("view", glm::value_ptr(view));
+			// shader->setMatrix4("projection", glm::value_ptr(projection));
 			shader->setVec3("worldCameraPos", camera.pos);
 		}
 

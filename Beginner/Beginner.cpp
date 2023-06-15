@@ -90,7 +90,6 @@ void error_callback(int error, const char* msg)
 	std::cerr << s << std::endl;
 }
 
-
 std::chrono::steady_clock::time_point m_lastTimePoint{std::chrono::steady_clock::now()};
 
 float getDeltaTime()
@@ -263,31 +262,6 @@ int main()
 				Beginner::RenderPass::setShaderLightParam(s, &dirLight);
 			}
 
-			// shaderArray[1]->use();
-			// {
-			// 	glBindTexture(GL_TEXTURE_2D, grassTexture);
-			//
-			// 	map<float, glm::vec3> sorted;
-			// 	for (char i = 0; i < 1; i++)
-			// 	{
-			// 		glm::vec3 planePos = glm::vec3(0, 0, i * 0.6);
-			// 		float distance = glm::length(camera.pos - planePos);
-			// 		sorted[distance] = planePos;
-			// 	}
-			//
-			// 	for (auto it = sorted.rbegin(); it != sorted.rend(); ++it)
-			// 	{
-			// 		model = glm::mat4(1);
-			// 		model = glm::translate(model, it->second);
-			// 		shaderArray[1]->setMatrix4("model", glm::value_ptr(model));
-			// 		cube.draw(*shaderArray[1]);
-			// 	}
-			//
-			// 	// 取消绑定对其他Pass造成的影响
-			// 	glActiveTexture(GL_TEXTURE0);
-			// 	glBindTexture(GL_TEXTURE_2D, 0);
-			// }
-
 			shaderArray[5]->use();
 			{
 				model = glm::mat4(1);
@@ -304,10 +278,11 @@ int main()
 				model = glm::mat4(1);
 				model = glm::translate(model, glm::vec3(3, 0, 0));
 
-				glBindTexture(GL_TEXTURE_CUBE_MAP, cubeMapTexture);
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, grassTexture);
 				shaderArray[6]->setMatrix4("model", glm::value_ptr(model));
 				cube.draw(*shaderArray[6]);
-				glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+				glBindTexture(GL_TEXTURE_2D, 0);
 			}
 
 			shaderArray[3]->use();
@@ -316,7 +291,7 @@ int main()
 				glActiveTexture(GL_TEXTURE0);
 				glBindTexture(GL_TEXTURE_CUBE_MAP, cubeMapTexture);
 				glm::mat4 view = glm::mat4(glm::mat3(camera.viewLookAtMat4()));
-				shaderArray[3]->setMatrix4("view", glm::value_ptr(view));
+				shaderArray[3]->setMatrix4("viewNew", glm::value_ptr(view));
 				skybox.draw(*shaderArray[3]);
 				glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 				glDepthFunc(GL_LESS);
