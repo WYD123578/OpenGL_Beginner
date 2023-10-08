@@ -9,6 +9,6 @@ in VS_OUT
 uniform sampler2D mainTexture;
 
 void main()
-{             
+{
     FragColor = texture(mainTexture, fs_in.TexCoords);
 }

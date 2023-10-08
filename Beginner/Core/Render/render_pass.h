@@ -1,6 +1,7 @@
 #pragma once
 #include <glad/glad.h>
 
+#include "Beginner/Light/DirectionLight.h"
 #include "Mesh/Mesh.h"
 
 namespace Beginner
@@ -22,6 +23,7 @@ namespace Beginner
 
 
 	public:
+		
 		explicit RenderPass(const RenderPassParam param)
 		{
 			_currentRenderParam = param;

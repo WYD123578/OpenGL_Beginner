@@ -14,6 +14,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "Core/Render/render_pass.h"
+#include "Light/DirectionLight.h"
 #include "Mesh/basic_mesh.h"
 #include "Mesh/Mesh.h"
 #include "Plugin/stb_image.h"
@@ -108,7 +109,7 @@ float getDeltaTime()
 
 Light* lightsInScene = new Light[8]();
 
-int main()
+int v_main()
 {
 	glfwSetErrorCallback(error_callback);
 	if (!glfwInit())
@@ -159,6 +160,7 @@ int main()
 		new Shader("Beginner/Shader/reflect.vert", "Beginner/Shader/reflect.frag"),
 		new Shader("Beginner/Shader/refract.vert", "Beginner/Shader/refract.frag"),
 		new Shader("Beginner/Shader/gl_param.vert", "Beginner/Shader/gl_param.frag"),
+		new Shader("Beginner/Shader/gl_geom.vert", "Beginner/Shader/gl_geom.frag","Beginner/Shader/gl_geom.geom"),
 	};
 
 	for (const Shader* s : shaderArray)
@@ -240,7 +242,7 @@ int main()
 	while (!glfwWindowShouldClose(window))
 	{
 		// ---------------------
-		imGuiWin.updateWindow();
+		// imGuiWin.updateWindow();
 		const auto currentFrame = static_cast<float>(glfwGetTime());
 		float deltaTime = getDeltaTime();
 
@@ -261,7 +263,12 @@ int main()
 				Beginner::RenderPass::setShaderMVPParam(s, camera, screenWidth, screenHeight);
 				Beginner::RenderPass::setShaderLightParam(s, &dirLight);
 			}
-
+			
+			shaderArray[7]->use();
+			{
+				glDrawArrays(GL_POINTS, 0, 4);
+			}
+			
 			shaderArray[5]->use();
 			{
 				model = glm::mat4(1);
@@ -296,6 +303,7 @@ int main()
 				glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 				glDepthFunc(GL_LESS);
 			}
+
 		}
 
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);

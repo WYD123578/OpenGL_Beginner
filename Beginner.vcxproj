@@ -156,8 +156,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Beginner\Beginner.cpp" />
-    <ClCompile Include="Beginner\Core\GraphicBooster.cpp" />
+    <ClCompile Include="Beginner\Core\Core.cpp" />
+    <ClCompile Include="Beginner\Core\Render\FrameBuffer.cpp" />
+    <ClCompile Include="Beginner\Core\Render\Window\BeginnerWIndow.cpp" />
     <ClCompile Include="Beginner\Mesh\basic_mesh.h" />
+    <ClCompile Include="Beginner\Utilities\LogAssert.cpp" />
     <ClCompile Include="Plugin\glad.c" />
     <ClCompile Include="Plugin\imgui\imgui.cpp" />
     <ClCompile Include="Plugin\imgui\imgui_demo.cpp" />
@@ -168,11 +171,11 @@
     <ClCompile Include="Plugin\imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Beginner\Core\Display.h" />
-    <ClInclude Include="Beginner\Core\DisplayManager.h" />
-    <ClInclude Include="Beginner\Core\GraphicBooster.h" />
+    <ClInclude Include="Beginner\Core\CoreSystem.h" />
     <ClInclude Include="Beginner\Core\Object\object.h" />
+    <ClInclude Include="Beginner\Core\Render\FrameBuffer.h" />
     <ClInclude Include="Beginner\Core\Render\render_pass.h" />
+    <ClInclude Include="Beginner\Core\Render\Window\BeginnerWindow.h" />
     <ClInclude Include="Beginner\Light\DirectionLight.h" />
     <ClInclude Include="Beginner\Light\Light.h" />
     <ClInclude Include="Beginner\Mesh\material.h" />
@@ -184,6 +187,7 @@
     <ClInclude Include="Beginner\Tool\ImGuiWindow.h" />
     <ClInclude Include="Beginner\Tool\resource_manager.h" />
     <ClInclude Include="Beginner\Tool\Shader.h" />
+    <ClInclude Include="Beginner\Utilities\LogAssert.h" />
     <ClInclude Include="Plugin\imgui\imconfig.h" />
     <ClInclude Include="Plugin\imgui\imgui.h" />
     <ClInclude Include="Plugin\imgui\imgui_impl_glfw.h" />
@@ -238,6 +242,11 @@
     <None Include="Beginner\Shader\StandardLightShader.vert">
       <DeploymentContent>true</DeploymentContent>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Beginner\Shader\gl_geom.frag" />
+    <Content Include="Beginner\Shader\gl_geom.vert" />
+    <Content Include="Beginner\Shader\gl_geom.geom" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

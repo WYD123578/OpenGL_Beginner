@@ -3,7 +3,7 @@
 #include <Plugin/imgui/imgui_impl_glfw.h>
 #include <Plugin/imgui/imgui_impl_opengl3.h>
 
-#include "Light/DirectionLight.h"
+#include "Beginner/Light/Light.h"
 
 class ImGuiWindow
 {
@@ -14,8 +14,7 @@ public:
 	// float pitch = 0.0f;
 	// float yaw = 0.0f;
 	// glm::vec3 light_dir = glm::vec3(0.0, 0.0, 0.0);
-
-	// 物体参数
+	
 	glm::vec3 ambient = glm::vec3(0.0, 0.1, 0.06);
 	glm::vec3 diffuse = glm::vec3(0.0, 0.50980392, 0.50980392);
 	glm::vec3 specular = glm::vec3(0.50196078, 0.50196078, 0.50196078);
@@ -25,16 +24,13 @@ public:
 
 	ImGuiWindow(GLFWwindow* window, CameraControl& camera): _camera(camera)
 	{
-		// 创建ImGui
 		ImGui::CreateContext();
 		ImGui::StyleColorsDark();
 
-		// 设置输入模式
 		ImGuiIO& io = ImGui::GetIO();(void)io;
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 
-		// 初始化OpenGl3.0以及GLFW相关配置
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
 		ImGui_ImplOpenGL3_Init("#version 130");
 	}
@@ -103,7 +99,7 @@ public:
 	}
 
 private:
-	// 灯光参数
+	// ??????
 	Light* _lights[8];
 	int _currentLightCount = 0;
 
@@ -142,7 +138,7 @@ private:
 		ImGui::End();
 	}
 
-	// 平行光源方向计算
+	// ??й?????????
 	/*void calcLightDir()
 	{
 		const float radiansXy = glm::radians(pitch);

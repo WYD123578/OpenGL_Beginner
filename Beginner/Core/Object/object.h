@@ -1,12 +1,12 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <glad/glad.h>
 
 namespace Beginner
 {
 	class Component
 	{
-		
 	};
 
 	class Object
@@ -21,15 +21,7 @@ namespace Beginner
 			return _name;
 		}
 
-		Object(const std::string& name, const std::vector<Component>& components)
-		{
-			_name = name;
-			_components = components;
-		}
-
-		void AddComponent(const Component* component)
-		{
-			_components.push_back(*component);
-		}
+		Object(const std::string& name, const std::vector<Component>& components);
+		void AddComponent(const Component* component);
 	};
 }

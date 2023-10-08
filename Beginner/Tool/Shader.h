@@ -62,13 +62,13 @@ public:
 
 		unsigned int vertex, fragment;
 
-		// ������ɫ��
+		// ¶¥µã×ÅÉ«Æ÷
 		vertex = glCreateShader(GL_VERTEX_SHADER);
 		glShaderSource(vertex, 1, &vShaderCode, NULL);
 		glCompileShader(vertex);
 		checkCompileErrors(vertex, "VERTEX");
 
-		// ƬԪ��ɫ��
+		// Æ¬Ôª×ÅÉ«Æ÷
 		fragment = glCreateShader(GL_FRAGMENT_SHADER);
 		glShaderSource(fragment, 1, &fShaderCode, NULL);
 		glCompileShader(fragment);
